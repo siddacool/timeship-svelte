@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc.js';
 import tz from 'dayjs/plugin/timezone.js';
+import type { Clock } from './types';
 
 dayjs.extend(utc);
 dayjs.extend(tz);
@@ -33,4 +34,14 @@ export const fetchYou = async (url = '') => {
   } catch (e) {
     return Promise.reject(e);
   }
+};
+
+export const generateClockId = (clock: Clock) => {
+  let { cityName = '', countryCode = '', timezone = '' } = clock || {};
+
+  cityName = cityName.trim();
+  countryCode = countryCode.trim();
+  timezone = timezone.trim();
+
+  return `${cityName}__$${countryCode}__${timezone}`;
 };
