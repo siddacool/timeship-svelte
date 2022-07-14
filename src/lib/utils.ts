@@ -1,3 +1,4 @@
+import { browser } from '$app/env';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc.js';
 import tz from 'dayjs/plugin/timezone.js';
@@ -44,4 +45,23 @@ export const generateClockId = (clock: Clock) => {
   timezone = timezone.trim();
 
   return `${cityName}__$${countryCode}__${timezone}`;
+};
+
+export const getStoredValue = (name: string, substitute: unknown) => {
+  if (!browser) {
+    return substitute;
+  }
+
+  return localStorage.getItem(`timeship__${name}`)
+    ? JSON.parse(`${localStorage.getItem(`timeship__${name}`)}`)
+    : substitute;
+};
+
+export const setStoredValue = (name: string, value: unknown) => {
+  if (!browser) {
+    return;
+  }
+
+  localStorage.setItem(`timeship__${name}`, JSON.stringify(value));
+  return;
 };
