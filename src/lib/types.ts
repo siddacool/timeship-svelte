@@ -35,3 +35,8 @@ export interface Settings {
   countryFormat: SettingsCountryFormat;
   freezeTime: SettingsFreezeTime;
 }
+
+export interface CitiesData {
+  cities: Cities;
+  countries: Countries;
+}

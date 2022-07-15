@@ -7,7 +7,13 @@ import type { Clock } from './types';
 dayjs.extend(utc);
 dayjs.extend(tz);
 
-export const getTimeObjectFromTimezone = (timeZone: string) => dayjs.utc().tz(timeZone);
+export const getTimeObject = (timezone: string) => dayjs.utc().tz(timezone);
+
+export const getTime = (timezone: string, format = 'hh:mm:ss A D,MMMM') => {
+  const time = timezone ? getTimeObject(timezone).format(format) : '';
+
+  return time;
+};
 
 export const fetchYou = async (url = '') => {
   try {

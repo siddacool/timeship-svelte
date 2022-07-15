@@ -1,8 +1,7 @@
 <script lang="ts">
-  import { cities } from '$lib/stores/cities';
-
   import type { City } from '$lib/types';
-  import { getTimeObjectFromTimezone } from '$lib/utils';
+  import { cities } from '$lib/stores/cities';
+  import { getTime } from '$lib/utils';
 
   export let city: City;
 
@@ -10,7 +9,7 @@
 
   const formattedName = cityNameNative || cityName;
 
-  const time = timezone ? getTimeObjectFromTimezone(timezone).format('hh:mm:ss A D,MMMM ') : '';
+  const time = getTime(timezone);
 </script>
 
 <li>

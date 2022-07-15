@@ -1,14 +1,8 @@
 import { writable } from 'svelte/store';
 import { fetchYou } from '$lib/utils';
-import type { Cities, Countries, City } from '$lib/types';
+import type { Cities, City, CitiesData } from '$lib/types';
 
-interface CitiesWritable {
-  cities: Cities;
-  countries: Countries;
-  search: string;
-}
-
-const citiesWritableDefaultValue: CitiesWritable = { cities: [], countries: {}, search: '' };
+const citiesWritableDefaultValue: CitiesData = { cities: [], countries: {} };
 
 function createCities() {
   const { update, subscribe } = writable(citiesWritableDefaultValue);
@@ -19,27 +13,17 @@ function createCities() {
       try {
         const data = await fetchYou('./cities.data.json');
 
-        return update((d) =>
-          Object.assign(
-            {},
-            {
-              ...data,
-              search: d.search,
-            }
-          )
-        );
+        return update(() => data);
       } catch (e) {
-        console.log(e);
-
         return update((d) => d);
       }
     },
   };
 }
 
-export const getFilteredCities = (data: Cities, searchFilter: string, countries: Countries) => {
+export const getFilteredCities = (citiesData: CitiesData, searchFilter: string) => {
   if (!searchFilter || searchFilter.trim() === '') {
-    return data;
+    return [];
   }
 
   const newDataStartsWith: Cities = [];
@@ -49,7 +33,9 @@ export const getFilteredCities = (data: Cities, searchFilter: string, countries:
 
   const includer = searchFilter.trim().toLowerCase();
 
-  data.forEach((city: City) => {
+  const { cities = [], countries = {} } = citiesData;
+
+  cities.forEach((city: City) => {
     const [, countryCode = '', ,] = city || [];
     let [cityName = '', , , cityNameNative = ''] = city || [];
     cityName = cityName.trim().toLowerCase();
