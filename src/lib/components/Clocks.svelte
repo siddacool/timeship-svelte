@@ -20,8 +20,8 @@
 </script>
 
 <ul class="clocks">
-  {#each $clocks as clock}
-    <Clock {clock} />
+  {#each $clocks as { id = '', cityNameNative = '', ...clock }}
+    <Clock {...clock} {id} {cityNameNative} />
   {/each}
 </ul>
 

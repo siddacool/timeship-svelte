@@ -7,7 +7,7 @@ const clockLocalStorage = getStoredValue('clocks', []);
 const clocksWritableDefaultValue: Clock[] = clockLocalStorage;
 
 function createClocks() {
-  const { update, subscribe } = writable(clocksWritableDefaultValue);
+  const { update, set, subscribe } = writable(clocksWritableDefaultValue);
 
   return {
     subscribe,
@@ -26,16 +26,25 @@ function createClocks() {
         return d;
       });
     },
-    remove: (id: string) => {
+    remove: (id = '') => {
       return update((d) => {
-        const clocks = d.filter((clock) => clock.id !== id);
+        const clocks = [...d];
 
-        setStoredValue('clocks', clocks);
+        setStoredValue(
+          'clocks',
+          clocks.filter((clock) => clock.id !== id)
+        );
 
-        return clocks;
+        return [...clocks.filter((clock) => clock.id !== id)];
       });
     },
   };
 }
 
 export const clocks = createClocks();
+
+export const getClockFromId = (clockData: Clock[], id: string) => {
+  return clockData.find((clock) => clock.id === id)
+    ? clockData.find((clock) => clock.id === id)
+    : { cityNameNative: '', cityName: '', countryName: '', id: '', timezone: '' };
+};

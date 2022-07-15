@@ -1,19 +1,14 @@
 <script lang="ts">
   import { clocks } from '$lib/stores/clocks';
   import { time } from '$lib/stores/time';
-
-  import type { Clock } from '$lib/types';
+  import type { CityName, CityNameNative, CountryName, Timezone } from '$lib/types';
   import { getTime } from '$lib/utils';
 
-  export let clock: Clock;
-
-  const {
-    cityNameNative = '',
-    cityName = '',
-    countryName = '',
-    id = '',
-    timezone = '',
-  } = clock || {};
+  export let id: string | undefined;
+  export let cityNameNative: CityNameNative;
+  export let cityName: CityName;
+  export let countryName: CountryName;
+  export let timezone: Timezone;
 
   const handleCityDelete = () => {
     clocks.remove(id);

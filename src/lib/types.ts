@@ -1,25 +1,25 @@
 // 'Sao Paulo', 'BR', 'America/Sao_Paulo', 'São Paulo'
 
 export type CityName = string;
-export type CountyCode = string;
+export type CountryCode = string;
 export type Timezone = string;
 export type CityNameNative = string | undefined;
 
-export type CountyName = string;
+export type CountryName = string;
 
-export type City = [CityName, CountyCode, Timezone, CityNameNative];
+export type City = [CityName, CountryCode, Timezone, CityNameNative];
 
 export type Cities = City[];
 
 export interface Countries {
-  [key: CountyCode]: CountyName;
+  [key: CountryCode]: CountryName;
 }
 
 export interface Clock {
   cityName: CityName;
   cityNameNative: CityNameNative;
-  countryName: CountyName;
-  countryCode: CountyCode;
+  countryName: CountryName;
+  countryCode: CountryCode;
   timezone: Timezone;
   id?: string | undefined; // cityName__countryCode__timezone
 }

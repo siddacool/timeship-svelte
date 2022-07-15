@@ -53,7 +53,7 @@ export const generateClockId = (clock: Clock) => {
   countryCode = countryCode.trim();
   timezone = timezone.trim();
 
-  return `${cityName}__$${countryCode}__${timezone}`;
+  return `${cityName}__${countryCode}__${timezone}`;
 };
 
 export const getStoredValue = (name: string, substitute: unknown) => {
