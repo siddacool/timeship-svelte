@@ -17,11 +17,11 @@ export interface Countries {
 
 export interface Clock {
   cityName: CityName;
-  CityNameNative: CityNameNative;
+  cityNameNative: CityNameNative;
   countryName: CountyName;
   countryCode: CountyCode;
   timezone: Timezone;
-  id: string | undefined; // cityName__countryCode__timezone
+  id?: string | undefined; // cityName__countryCode__timezone
 }
 
 export type SettingsTheme = 'auto' | 'light' | 'dark';

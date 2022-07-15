@@ -1,7 +1,7 @@
 import { writable } from 'svelte/store';
 
 function createSearch() {
-  const { update, subscribe } = writable('istan');
+  const { update, subscribe } = writable('');
 
   return {
     subscribe,

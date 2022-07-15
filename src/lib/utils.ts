@@ -1,5 +1,5 @@
 import { browser } from '$app/env';
-import dayjs from 'dayjs';
+import dayjs, { Dayjs } from 'dayjs';
 import utc from 'dayjs/plugin/utc.js';
 import tz from 'dayjs/plugin/timezone.js';
 import type { Clock } from './types';
@@ -7,10 +7,13 @@ import type { Clock } from './types';
 dayjs.extend(utc);
 dayjs.extend(tz);
 
-export const getTimeObject = (timezone: string) => dayjs.utc().tz(timezone);
+export const getTimeObjectUTC = () => dayjs.utc();
 
-export const getTime = (timezone: string, format = 'hh:mm:ss A D,MMMM') => {
-  const time = timezone ? getTimeObject(timezone).format(format) : '';
+export const getTimeObject = (timeObject: Dayjs, timezone: string) =>
+  dayjs.utc(timeObject).tz(timezone);
+
+export const getTime = (timeObject: Dayjs, timezone: string, format = 'hh:mm:ss A D,MMMM') => {
+  const time = timezone ? getTimeObject(timeObject, timezone).format(format) : '';
 
   return time;
 };

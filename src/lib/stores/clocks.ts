@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store';
 import type { Clock } from '$lib/types';
-import { generateClockId, getStoredValue, setStoredValue } from '$lib/utils';
+import { getStoredValue, setStoredValue } from '$lib/utils';
 
 const clockLocalStorage = getStoredValue('clocks', []);
 
@@ -12,9 +12,13 @@ function createClocks() {
   return {
     subscribe,
     add: (clock: Clock) => {
-      clock.id = generateClockId(clock);
-
       return update((d) => {
+        const ifExist = d.find((d) => d.id === clock.id);
+
+        if (ifExist && ifExist.id) {
+          return d;
+        }
+
         d.push(clock);
 
         setStoredValue('clocks', d);
@@ -26,7 +30,7 @@ function createClocks() {
       return update((d) => {
         const clocks = d.filter((clock) => clock.id !== id);
 
-        setStoredValue('clocks', d);
+        setStoredValue('clocks', clocks);
 
         return clocks;
       });
