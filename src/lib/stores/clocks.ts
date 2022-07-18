@@ -28,14 +28,18 @@ function createClocks() {
     },
     remove: (id = '') => {
       return update((d) => {
-        const clocks = [...d];
+        const clocks = d.filter((clock) => clock.id !== id);
 
-        setStoredValue(
-          'clocks',
-          clocks.filter((clock) => clock.id !== id)
-        );
+        setStoredValue('clocks', clocks);
 
-        return [...clocks.filter((clock) => clock.id !== id)];
+        return clocks;
+      });
+    },
+    organize: (newData: Clock[]) => {
+      return update(() => {
+        setStoredValue('clocks', newData);
+
+        return newData;
       });
     },
   };

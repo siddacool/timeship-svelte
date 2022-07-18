@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { flip } from 'svelte/animate';
   import { clocks } from '$lib/stores/clocks';
   import { time } from '$lib/stores/time';
   import type { CityName, CityNameNative, CountryCode, CountryName, Timezone } from '$lib/types';
@@ -16,13 +17,12 @@
   };
 </script>
 
-<li class="clock">
+<div class="clock">
   {cityNameNative || cityName}, {countryName}, {countryCode}, {getTime($time, timezone)}
   <button on:click={handleCityDelete}>❌</button>
-</li>
+</div>
 
 <style lang="scss">
   .clock {
-    padding: 10px;
   }
 </style>
