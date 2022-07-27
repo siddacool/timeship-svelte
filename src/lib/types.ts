@@ -27,13 +27,13 @@ export interface Clock {
 export type SettingsTheme = 'auto' | 'light' | 'dark';
 export type SettingsClockFormat = '12hour' | '24hour';
 export type SettingsCountryFormat = 'countryCode' | 'countryName';
-export type SettingsFreezeTime = boolean;
+export type SettingsFreezeTimeAt = null | string;
 
 export interface Settings {
   theme: SettingsTheme;
   clockFormat: SettingsClockFormat;
   countryFormat: SettingsCountryFormat;
-  freezeTime: SettingsFreezeTime;
+  freezeTimeAt: SettingsFreezeTimeAt;
 }
 
 export interface CitiesData {

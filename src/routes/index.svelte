@@ -10,8 +10,15 @@
   });
 </script>
 
-<SearchBox />
-<Clocks />
+<main>
+  <Clocks />
+</main>
 
 <style lang="scss">
+  main {
+    @media (min-width: 1024px) {
+      max-width: 650px;
+      margin: 0 auto;
+    }
+  }
 </style>

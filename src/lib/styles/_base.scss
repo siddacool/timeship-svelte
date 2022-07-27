@@ -2,7 +2,34 @@
   box-sizing: border-box;
 }
 
+:root {
+  // colors
+  --color-bg-backdrop: #ededed;
+  --color-bg-surface-main: #fff;
+
+  --color-font-main: #464646;
+
+  // units
+  --border-radius-1: 6px;
+
+  --font-size-x-large: 3rem;
+  --font-size-large: 2.75rem;
+  --font-size-medium: 1.25rem;
+  --font-size-normal: 1rem;
+  --font-size-small: 0.875rem;
+
+  --font-weight-black: 700;
+  --font-weight-bold: 600;
+  --font-weight-semi-bold: 517;
+  --font-weight-normal: 400;
+}
+
 body {
   margin: 0;
   padding: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-bg-backdrop);
+  color: var(--color-font-main);
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-normal);
 }

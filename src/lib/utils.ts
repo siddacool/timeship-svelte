@@ -2,10 +2,12 @@ import { browser } from '$app/env';
 import dayjs, { Dayjs } from 'dayjs';
 import utc from 'dayjs/plugin/utc.js';
 import tz from 'dayjs/plugin/timezone.js';
-import type { Clock } from './types';
+import customParseFormat from 'dayjs/plugin/customParseFormat.js';
+import type { City, Clock } from './types';
 
 dayjs.extend(utc);
 dayjs.extend(tz);
+dayjs.extend(customParseFormat);
 
 export const getTimeObjectUTC = () => dayjs.utc();
 
@@ -16,6 +18,24 @@ export const getTime = (timeObject: Dayjs, timezone: string, format = 'hh:mm:ss 
   const time = timezone ? getTimeObject(timeObject, timezone).format(format) : '';
 
   return time;
+};
+
+export const getTimeFromFzid = (fzId: string, format = 'hh:mm:ss A D,MMMM') => {
+  if (!fzId) {
+    return '';
+  }
+
+  const [, , timezone = '', time = ''] = fzId.split('__');
+
+  const frozenObject = dayjs(time, 'HH:mm:ss:DD:MM:YYYY').tz(timezone);
+
+  const isValid = frozenObject.isValid();
+
+  if (!isValid) {
+    return '';
+  }
+
+  return frozenObject.format(format);
 };
 
 export const fetchYou = async (url = '') => {
@@ -67,6 +87,15 @@ export const getStoredValue = (name: string, substitute: unknown) => {
 };
 
 export const setStoredValue = (name: string, value: unknown) => {
+  if (!browser) {
+    return;
+  }
+
+  localStorage.setItem(`timeship__${name}`, JSON.stringify(value));
+  return;
+};
+
+export const generateFzId = (city: City) => {
   if (!browser) {
     return;
   }

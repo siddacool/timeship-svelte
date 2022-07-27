@@ -4,7 +4,7 @@
   import { dndzone } from 'svelte-dnd-action';
   import { clocks } from '$lib/stores/clocks';
   import type { Clock as ClockType } from '$lib/types';
-  import Clock from './Clock.svelte';
+  import Clock from './Clock';
   import { time } from '$lib/stores/time';
 
   interface DragEvent {
@@ -14,7 +14,7 @@
   }
 
   const flipDurationMs = 300;
-  let dragDisabled = false;
+  let dragDisabled = true;
 
   const handleDndConsider = (e: DragEvent) => {
     clocks.organize(e.detail.items);
@@ -24,9 +24,13 @@
     clocks.organize(e.detail.items);
   };
 
-  // const toggleDrag = () => {
-  //   dragDisabled != dragDisabled;
-  // };
+  const handleDragEnable = () => {
+    dragDisabled = true;
+  };
+
+  const handleDragDisable = () => {
+    dragDisabled = false;
+  };
 
   onMount(() => {
     let frame: number;
@@ -66,9 +70,13 @@
     display: block;
     margin: 0;
     padding: 0;
+    padding-top: 24px;
+    padding-left: 12px;
+    padding-right: 12px;
   }
   .clock-wrapper {
-    padding: 10px;
     display: flex;
+    width: 100%;
+    margin-bottom: 16px;
   }
 </style>
