@@ -13,6 +13,8 @@ function createCities() {
       try {
         const data = await fetchYou('./cities.data.json');
 
+        console.log(data);
+
         return update(() => data);
       } catch (e) {
         return update((d) => d);

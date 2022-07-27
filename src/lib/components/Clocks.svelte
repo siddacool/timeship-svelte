@@ -14,7 +14,7 @@
   }
 
   const flipDurationMs = 300;
-  let dragDisabled = true;
+  let dragDisabled = false;
 
   const handleDndConsider = (e: DragEvent) => {
     clocks.organize(e.detail.items);
