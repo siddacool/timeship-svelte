@@ -14,7 +14,7 @@
   }
 
   const flipDurationMs = 300;
-  let dragDisabled = false;
+  let dragDisabled = true;
 
   const handleDndConsider = (e: DragEvent) => {
     clocks.organize(e.detail.items);
@@ -24,12 +24,8 @@
     clocks.organize(e.detail.items);
   };
 
-  const handleDragEnable = () => {
-    dragDisabled = true;
-  };
-
-  const handleDragDisable = () => {
-    dragDisabled = false;
+  const toggleDrag = () => {
+    dragDisabled = !dragDisabled;
   };
 
   onMount(() => {
@@ -60,7 +56,13 @@
 >
   {#each $clocks as clock (clock.id)}
     <li class="clock-wrapper" animate:flip={{ duration: flipDurationMs }}>
-      <Clock {...clock} id={clock.id} cityNameNative={clock.cityNameNative} />
+      <Clock
+        {...clock}
+        id={clock.id}
+        cityNameNative={clock.cityNameNative}
+        {toggleDrag}
+        isDragable={!dragDisabled}
+      />
     </li>
   {/each}
 </ul>
