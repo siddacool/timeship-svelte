@@ -19,8 +19,8 @@
   .expand-btn {
     display: block;
     position: absolute;
-    bottom: 0;
-    right: 0;
+    bottom: 8px;
+    right: 8px;
 
     .svg-icon {
       transition: transform 200ms;
