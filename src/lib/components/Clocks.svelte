@@ -6,6 +6,7 @@
   import type { Clock as ClockType } from '$lib/types';
   import Clock from './Clock';
   import { time } from '$lib/stores/time';
+  import { general } from '$lib/stores/general';
 
   interface DragEvent {
     detail: {
@@ -14,7 +15,6 @@
   }
 
   const flipDurationMs = 300;
-  let dragDisabled = true;
 
   const handleDndConsider = (e: DragEvent) => {
     clocks.organize(e.detail.items);
@@ -22,10 +22,6 @@
 
   const handleDndFinalize = (e: DragEvent) => {
     clocks.organize(e.detail.items);
-  };
-
-  const toggleDrag = () => {
-    dragDisabled = !dragDisabled;
   };
 
   onMount(() => {
@@ -47,7 +43,7 @@
   use:dndzone={{
     items: $clocks,
     flipDurationMs,
-    dragDisabled,
+    dragDisabled: $general.dragDisabled,
     dropTargetStyle: { outline: 'none' },
   }}
   on:consider={handleDndConsider}
@@ -56,13 +52,7 @@
 >
   {#each $clocks as clock (clock.id)}
     <li class="clock-wrapper" animate:flip={{ duration: flipDurationMs }}>
-      <Clock
-        {...clock}
-        id={clock.id}
-        cityNameNative={clock.cityNameNative}
-        {toggleDrag}
-        isDragable={!dragDisabled}
-      />
+      <Clock {...clock} id={clock.id} cityNameNative={clock.cityNameNative} />
     </li>
   {/each}
 </ul>
@@ -71,7 +61,7 @@
   .clocks {
     display: block;
     margin: 0;
-    padding: 0;
+    padding-bottom: 110px;
     padding-top: 24px;
     padding-left: 12px;
     padding-right: 12px;

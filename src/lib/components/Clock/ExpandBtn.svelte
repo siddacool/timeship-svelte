@@ -1,5 +1,5 @@
 <script lang="ts">
-  import IconButton from '../IconButton.svelte';
+  import IconButton from '../ui/IconButton.svelte';
 
   export let isOpen: boolean;
   export let isActive: boolean;

@@ -1,7 +1,7 @@
 <script lang="ts">
 </script>
 
-<div class="card">
+<div class={`card ${$$props.class ? $$props.class : ''}`}>
   <slot />
 </div>
 

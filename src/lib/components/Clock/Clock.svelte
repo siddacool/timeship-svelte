@@ -1,8 +1,10 @@
 <script lang="ts">
   import { clocks } from '$lib/stores/clocks';
+  import { general } from '$lib/stores/general';
   import type { CityName, CityNameNative, CountryCode, CountryName, Timezone } from '$lib/types';
-  import Card from '../Card.svelte';
+  import Card from '../ui/Card.svelte';
   import City from './City.svelte';
+  import DeleteButton from './DeleteButton.svelte';
   import DragHandle from './DragHandle.svelte';
   import ExpandBtn from './ExpandBtn.svelte';
   import ExtendedInfo from './ExtendedInfo.svelte';
@@ -15,28 +17,31 @@
   export let countryName: CountryName;
   export let timezone: Timezone;
   export let countryCode: CountryCode;
-  export let isDragable: boolean = false;
-  export let toggleDrag = () => {};
 
   let showExtendedInfo = false;
-
-  const handleCityDelete = () => {
-    clocks.remove(id);
-  };
 
   const toggleExtendedInfo = () => {
     showExtendedInfo = !showExtendedInfo;
   };
+
+  const closeExtendedInfo = () => {
+    showExtendedInfo = false;
+  };
 </script>
 
 <Card>
-  <div class="clock" class:draggable={isDragable}>
-    <DragHandle isActive={isDragable} />
+  <div class="clock" class:draggable={!$general.dragDisabled}>
+    <DragHandle isActive={!$general.dragDisabled} />
     <Time {timezone} />
     <City {cityNameNative} {cityName} {countryName} />
-    <RederderBtn isActive={showExtendedInfo && !isDragable} on:click={toggleDrag} />
-    <ExtendedInfo {timezone} isActive={showExtendedInfo && !isDragable} />
-    <ExpandBtn on:click={toggleExtendedInfo} isOpen={showExtendedInfo} isActive={!isDragable} />
+    <RederderBtn isActive={showExtendedInfo && $general.dragDisabled} {closeExtendedInfo} />
+    <DeleteButton isActive={!$general.dragDisabled} {id} />
+    <ExtendedInfo {timezone} isActive={showExtendedInfo && $general.dragDisabled} />
+    <ExpandBtn
+      on:click={toggleExtendedInfo}
+      isOpen={showExtendedInfo}
+      isActive={$general.dragDisabled}
+    />
   </div>
 </Card>
 

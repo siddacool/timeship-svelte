@@ -10,19 +10,16 @@
   on:click
   class:elevation
   class:outline
-  class={`icon-button color--${color} ${$$props.class ? $$props.class : ''}`}
+  class={`button-base color--${color} ${$$props.class ? $$props.class : ''}`}
 >
   <slot />
 </button>
 
 <style lang="scss">
-  .icon-button {
-    width: 50px;
-    height: 50px;
+  .button-base {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50%;
     border: none;
     background-color: transparent;
     outline: none;
@@ -30,6 +27,7 @@
     padding: 0;
     color: inherit;
     transition: color 300ms, background-color 300ms;
+    fill: currentColor;
 
     &.elevation {
     }
