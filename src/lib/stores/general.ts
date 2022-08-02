@@ -3,15 +3,13 @@ import { writable } from 'svelte/store';
 interface GeneralWritable {
   searchModalOpen: boolean;
   settingsModalOpen: boolean;
-  reorderPopBelowOpen: boolean;
-  dragDisabled: boolean;
+  reorder: boolean;
 }
 
 const generalWritableDefaultValue: GeneralWritable = {
   searchModalOpen: false,
   settingsModalOpen: false,
-  reorderPopBelowOpen: false,
-  dragDisabled: true,
+  reorder: false,
 };
 
 function createGeneral() {
@@ -25,31 +23,21 @@ function createGeneral() {
 
         return d;
       }),
-    enableDrag: () =>
+    enableReorder: () =>
       update((d) => {
-        d.dragDisabled = false;
-
-        d.reorderPopBelowOpen = true;
+        d.reorder = true;
 
         return d;
       }),
-    disableDrag: () =>
+    disableReorder: () =>
       update((d) => {
-        d.dragDisabled = true;
-
-        d.reorderPopBelowOpen = false;
+        d.reorder = false;
 
         return d;
       }),
     setSettingsModal: (open = false) =>
       update((d) => {
         d.settingsModalOpen = open;
-
-        return d;
-      }),
-    setReorderPopBelow: (open = false) =>
-      update((d) => {
-        d.reorderPopBelowOpen = open;
 
         return d;
       }),

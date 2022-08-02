@@ -30,17 +30,17 @@
 </script>
 
 <Card>
-  <div class="clock" class:draggable={!$general.dragDisabled}>
-    <DragHandle isActive={!$general.dragDisabled} />
+  <div class="clock" class:draggable={$general.reorder}>
+    <DragHandle isActive={$general.reorder} />
     <Time {timezone} />
     <City {cityNameNative} {cityName} {countryName} />
-    <RederderBtn isActive={showExtendedInfo && $general.dragDisabled} {closeExtendedInfo} />
-    <DeleteButton isActive={!$general.dragDisabled} {id} />
-    <ExtendedInfo {timezone} isActive={showExtendedInfo && $general.dragDisabled} />
+    <RederderBtn isActive={showExtendedInfo && !$general.reorder} {closeExtendedInfo} />
+    <DeleteButton isActive={$general.reorder} {id} />
+    <ExtendedInfo {timezone} isActive={showExtendedInfo && !$general.reorder} />
     <ExpandBtn
       on:click={toggleExtendedInfo}
       isOpen={showExtendedInfo}
-      isActive={$general.dragDisabled}
+      isActive={!$general.reorder}
     />
   </div>
 </Card>

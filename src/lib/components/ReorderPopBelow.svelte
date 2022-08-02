@@ -7,17 +7,17 @@
   import PopBelow from './ui/PopBelow.svelte';
 
   const handleAccept = () => {
-    general.disableDrag();
+    general.disableReorder();
     clocks.acceptOrganize();
   };
 
   const handleCancel = () => {
-    general.disableDrag();
+    general.disableReorder();
     clocks.cancelOrganize();
   };
 </script>
 
-<PopBelow show={$general.reorderPopBelowOpen}>
+<PopBelow show={$general.reorder}>
   <Button outline color="primary" on:click={() => handleCancel()}>
     <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24">
       <path

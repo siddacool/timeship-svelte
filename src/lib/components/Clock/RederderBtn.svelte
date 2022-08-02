@@ -10,7 +10,7 @@
   const handleReder = () => {
     closeExtendedInfo();
 
-    general.enableDrag();
+    general.enableReorder();
   };
 </script>
 

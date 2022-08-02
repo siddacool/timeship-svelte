@@ -43,7 +43,7 @@
   use:dndzone={{
     items: $clocks,
     flipDurationMs,
-    dragDisabled: $general.dragDisabled,
+    dragDisabled: !$general.reorder,
     dropTargetStyle: { outline: 'none' },
   }}
   on:consider={handleDndConsider}

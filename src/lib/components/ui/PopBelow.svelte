@@ -23,10 +23,6 @@
     min-height: 110px;
     display: flex;
     justify-content: center;
-
-    @media (min-width: 1024px) {
-      bottom: 24px;
-    }
   }
 
   .pop-below {
@@ -47,11 +43,6 @@
       padding-bottom: 24px;
       align-items: flex-end;
       justify-content: flex-end;
-
-      @media (min-width: 1024px) {
-        border-bottom-right-radius: var(--border-radius-1);
-        border-bottom-left-radius: var(--border-radius-1);
-      }
     }
 
     :global(button) {
