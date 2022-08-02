@@ -1,7 +1,8 @@
 <script lang="ts">
+  export let elevation: boolean = false;
 </script>
 
-<div class={`card ${$$props.class ? $$props.class : ''}`}>
+<div class={`card ${$$props.class ? $$props.class : ''}`} class:elevation>
   <slot />
 </div>
 
@@ -12,5 +13,9 @@
     display: block;
     width: 100%;
     position: relative;
+
+    &.elevation {
+      box-shadow: 0px 4px 20px 3px hsl(var(--color-shadow) / 0.28);
+    }
   }
 </style>

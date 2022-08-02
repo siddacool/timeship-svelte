@@ -1,13 +1,18 @@
 <script lang="ts">
+  import { slide } from 'svelte/transition';
+  import { quintOut } from 'svelte/easing';
   import Card from './Card.svelte';
 
   export let show: boolean = false;
 </script>
 
 {#if show}
-  <div class="pop-below-container">
+  <div
+    class="pop-below-container"
+    transition:slide={{ delay: 50, duration: 200, easing: quintOut }}
+  >
     <div class="pop-below">
-      <Card>
+      <Card elevation={true}>
         <slot />
       </Card>
     </div>
@@ -28,8 +33,6 @@
   .pop-below {
     width: 100%;
     display: flex;
-    box-shadow: 0px 4px 20px 3px hsl(var(--color-shadow) / 0.28);
-    overflow: hidden;
 
     @media (min-width: 1024px) {
       max-width: 650px;
@@ -43,6 +46,7 @@
       padding-bottom: 24px;
       align-items: flex-end;
       justify-content: flex-end;
+      overflow: hidden;
     }
 
     :global(button) {

@@ -5,6 +5,7 @@
   import SearchBox from '$lib/components/SearchBox.svelte';
   import Clocks from '$lib/components/Clocks.svelte';
   import ReorderPopBelow from '$lib/components/ReorderPopBelow.svelte';
+  import Controls from '$lib/components/Controls.svelte';
 
   onMount(() => {
     cities.fetchData();
@@ -14,7 +15,7 @@
 <main>
   <Clocks />
 </main>
-
+<Controls />
 <ReorderPopBelow />
 
 <style lang="scss">
