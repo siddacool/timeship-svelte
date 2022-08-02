@@ -1,16 +1,11 @@
 <script lang="ts">
-  import { slide } from 'svelte/transition';
-  import { quintOut } from 'svelte/easing';
   import Card from './Card.svelte';
 
   export let show: boolean = false;
 </script>
 
 {#if show}
-  <div
-    class="pop-below-container"
-    transition:slide={{ delay: 50, duration: 200, easing: quintOut }}
-  >
+  <div class="pop-below-container">
     <div class="pop-below">
       <Card elevation={true}>
         <slot />

@@ -1,0 +1,48 @@
+<script lang="ts">
+  import { createEventDispatcher } from 'svelte';
+  export let show: boolean = false;
+
+  const dispatch = createEventDispatcher();
+
+  function closeEvent() {
+    dispatch('close');
+  }
+</script>
+
+{#if show}
+  <div class="modal">
+    <div class="backdrop" on:click={closeEvent} />
+
+    <div class="content">
+      <slot />
+    </div>
+  </div>
+{/if}
+
+<style lang="scss">
+  .modal {
+    display: flex;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+
+    .backdrop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.31);
+    }
+
+    .content {
+      position: relative;
+      z-index: 1200;
+    }
+  }
+</style>
