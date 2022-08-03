@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build",
+    "build": "vite build && node ./pwa.js",
     "package": "svelte-kit package",
     "preview": "vite preview",
     "prepare": "svelte-kit sync",
@@ -34,6 +34,7 @@
   "dependencies": {
     "dayjs": "^1.11.3",
     "svelte-dnd-action": "^0.9.19",
-    "svelte-tiny-virtual-list": "^2.0.5"
+    "svelte-tiny-virtual-list": "^2.0.5",
+    "vite-plugin-pwa": "^0.12.3"
   }
 }
