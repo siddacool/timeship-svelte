@@ -2,7 +2,7 @@
   import { general } from '$lib/stores/general';
   import { onMount } from 'svelte';
   import Card from '../ui/Card.svelte';
-  import Modal from '../ui/Modal.svelte';
+  import Dropdown from '../ui/Dropdown.svelte';
   import SearchSection from './SearchSection.svelte';
 
   const onClose = () => {
@@ -12,7 +12,7 @@
   let focus = false;
 
   onMount(() => {
-    const { matches } = window.matchMedia('(max-width: 1023px)');
+    const { matches } = window.matchMedia('(min-width: 1024px)');
 
     if (matches) {
       focus = true;
@@ -20,20 +20,24 @@
   });
 </script>
 
-<div class="search-modal">
-  <Modal show={$general.searchModalOpen} on:close={onClose}>
-    <div class="search-modal-body">
-      <Card elevation>
-        <SearchSection {focus} />
-      </Card>
-    </div>
-  </Modal>
+<div class="search-dropdown">
+  <Dropdown on:close={onClose} show={$general.searchModalOpen}>
+    <Card elevation>
+      <SearchSection {focus} />
+    </Card>
+  </Dropdown>
 </div>
 
 <style lang="scss">
-  .search-modal {
+  .search-dropdown {
+    display: none;
     @media (min-width: 1024px) {
-      display: none;
+      display: block;
+    }
+
+    :global(.card) {
+      top: 82px;
+      right: 130px;
     }
   }
 </style>

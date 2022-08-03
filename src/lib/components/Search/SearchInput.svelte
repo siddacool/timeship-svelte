@@ -2,6 +2,8 @@
   import { search } from '$lib/stores/search';
   import IconButton from '../ui/IconButton.svelte';
 
+  export let focus: boolean = false;
+
   let timer: string | number | NodeJS.Timeout | undefined;
 
   const onInput = (e: any) => {
@@ -46,7 +48,13 @@
       </svg>
     </span>
 
-    <input type="text" value={$search} on:input={onInput} placeholder="Search City, Country" />
+    <input
+      type="text"
+      value={$search}
+      on:input={onInput}
+      placeholder="Search City, Country"
+      autofocus={focus}
+    />
 
     {#if $search && $search.trim() !== ''}
       <span class="icon icon--close">

@@ -2,6 +2,8 @@
   import { general } from '$lib/stores/general';
   import { search } from '$lib/stores/search';
 
+  export let focus: boolean = false;
+
   import SearchBox from './SearchBox.svelte';
   import SearchInput from './SearchInput.svelte';
 
@@ -12,7 +14,7 @@
 </script>
 
 <div class="search-section">
-  <SearchInput />
+  <SearchInput {focus} />
   <SearchBox />
   <div class="back" on:click={onBack}>
     <svg width="24" height="22" viewBox="0 0 24 22" fill="none" xmlns="http://www.w3.org/2000/svg">

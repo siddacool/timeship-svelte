@@ -6,6 +6,7 @@
   import ReorderPopBelow from '$lib/components/ReorderPopBelow.svelte';
   import Controls from '$lib/components/Controls.svelte';
   import SearchModal from '$lib/components/Search/SearchModal.svelte';
+  import SearchDropdown from '$lib/components/Search/SearchDropdown.svelte';
 
   onMount(() => {
     cities.fetchData();
@@ -18,6 +19,7 @@
 <Controls />
 <ReorderPopBelow />
 <SearchModal />
+<SearchDropdown />
 
 <style lang="scss">
   main {
