@@ -1,9 +1,14 @@
 <script lang="ts">
+  import { cities } from '$lib/stores/cities';
   import { clocks } from '$lib/stores/clocks';
   import { general } from '$lib/stores/general';
   import ButtonTextToggle from './ui/ButtonTextToggle.svelte';
 
   const onSearchOpen = () => {
+    if (!$cities?.cities.length) {
+      cities.fetchData();
+    }
+
     general.setSearchModal(true);
   };
 </script>
