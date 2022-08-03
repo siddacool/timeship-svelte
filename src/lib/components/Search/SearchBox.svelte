@@ -2,15 +2,13 @@
   import VirtualList from 'svelte-tiny-virtual-list';
   import { cities, getFilteredCities } from '$lib/stores/cities';
   import { search } from '$lib/stores/search';
-  import SearchInput from './SearchInput.svelte';
   import SearchResult from './SearchResult.svelte';
+  import SearchResultBase from './SearchResultBase.svelte';
 
   $: citiesList = getFilteredCities($cities, $search);
 </script>
 
 <div class="searchBox">
-  <SearchInput />
-
   <div class="list">
     {#if citiesList.length}
       <VirtualList width="100%" height={400} itemCount={citiesList.length} itemSize={50}>
@@ -19,14 +17,11 @@
         </div>
       </VirtualList>
     {:else}
-      <div>No results</div>
+      <div style="height: 50px">
+        <SearchResultBase preventHover={true}>
+          <span>No results</span>
+        </SearchResultBase>
+      </div>
     {/if}
   </div>
 </div>
-
-<style lang="scss">
-  .list {
-    // :global(.virtual-list-inner) {
-    // }
-  }
-</style>

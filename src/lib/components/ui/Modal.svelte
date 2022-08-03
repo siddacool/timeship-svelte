@@ -21,15 +21,19 @@
 
 <style lang="scss">
   .modal {
-    display: flex;
+    display: block;
     position: fixed;
     z-index: 1000;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    justify-content: center;
-    align-items: center;
+    padding: 12px;
+    padding-top: 24px;
+
+    @media (min-width: 1024px) {
+      padding-top: 10%;
+    }
 
     .backdrop {
       position: absolute;
@@ -43,6 +47,18 @@
     .content {
       position: relative;
       z-index: 1200;
+      width: 100%;
+      display: block;
+      height: initial;
+      margin: 0 auto;
+
+      @media (min-width: 1024px) {
+        max-width: 624px;
+      }
+    }
+
+    :global(.card) {
+      overflow: hidden;
     }
   }
 </style>

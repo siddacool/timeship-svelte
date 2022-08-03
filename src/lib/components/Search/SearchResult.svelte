@@ -4,6 +4,8 @@
   import { clocks } from '$lib/stores/clocks';
   import { generateClockId } from '$lib/utils';
   import { search } from '$lib/stores/search';
+  import SearchResultBase from './SearchResultBase.svelte';
+  import { general } from '$lib/stores/general';
 
   export let city: City;
 
@@ -33,29 +35,11 @@
 
     clocks.add(addData);
     search.clearSearch();
+    general.setSearchModal(false);
   };
 </script>
 
-<div class={`searchResult ${ifExistInClocks ? 'disabled' : ''}`} on:click={onCityClick}>
-  <span>{formattedName} . </span>
-  <span>{countryName} . </span>
-</div>
-
-<style lang="scss">
-  .searchResult {
-    display: flex;
-    padding: 4px 8px;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    cursor: pointer;
-
-    &:hover {
-      background-color: #eee;
-    }
-
-    &.disabled {
-      color: #878787;
-    }
-  }
-</style>
+<SearchResultBase disabled={ifExistInClocks} on:click={onCityClick}>
+  <b>{formattedName}</b>
+  <span>{countryName}</span>
+</SearchResultBase>

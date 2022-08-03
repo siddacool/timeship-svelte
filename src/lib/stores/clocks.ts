@@ -4,33 +4,6 @@ import { getStoredValue, setStoredValue } from '$lib/utils';
 
 const clockLocalStorage = getStoredValue('clocks', []);
 
-// const clocksWritableDefaultValue: Clock[] = [
-//   {
-//     cityName: 'Tokyo',
-//     cityNameNative: 'Tokyo',
-//     countryName: 'Japan',
-//     countryCode: 'JP',
-//     timezone: 'Asia/Tokyo',
-//     id: 'Tokyo__Japan__Asia/Tokyo',
-//   },
-//   {
-//     cityName: 'Mumbai',
-//     cityNameNative: 'Mumbai',
-//     countryName: 'India',
-//     countryCode: 'IN',
-//     timezone: 'Asia/Kolkata',
-//     id: 'Mumbai__India__Asia/Kolkata',
-//   },
-//   {
-//     cityName: 'New Delhi',
-//     cityNameNative: 'New Delhi',
-//     countryName: 'India',
-//     countryCode: 'IN',
-//     timezone: 'Asia/Kolkata',
-//     id: 'New Delhi__India__Asia/Kolkata',
-//   },
-// ];
-
 const clocksWritableDefaultValue: Clock[] = clockLocalStorage;
 
 function createClocks() {

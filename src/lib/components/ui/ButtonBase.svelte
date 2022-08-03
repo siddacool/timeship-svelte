@@ -30,7 +30,10 @@
     fill: currentColor;
 
     &.elevation {
-      box-shadow: 0px 4px 4px hsl(var(--color-shadow) / 0.38);
+      box-shadow: 0.3px 0.5px 0.7px hsl(var(--color-shadow) / 0.26),
+        0.8px 1.6px 2px -0.8px hsl(var(--color-shadow) / 0.26),
+        2.1px 4.1px 5.2px -1.7px hsl(var(--color-shadow) / 0.26),
+        5px 10px 12.6px -2.5px hsl(var(--color-shadow) / 0.26);
     }
 
     &.outline {

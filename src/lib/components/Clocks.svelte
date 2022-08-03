@@ -61,7 +61,7 @@
   .clocks {
     display: block;
     margin: 0;
-    padding-bottom: 110px;
+    padding-bottom: 150px;
     padding-top: 24px;
     padding-left: 12px;
     padding-right: 12px;

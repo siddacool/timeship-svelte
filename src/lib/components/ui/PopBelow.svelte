@@ -4,15 +4,13 @@
   export let show: boolean = false;
 </script>
 
-{#if show}
-  <div class="pop-below-container">
-    <div class="pop-below">
-      <Card elevation={true}>
-        <slot />
-      </Card>
-    </div>
+<div class="pop-below-container" class:show>
+  <div class="pop-below">
+    <Card elevation={true}>
+      <slot />
+    </Card>
   </div>
-{/if}
+</div>
 
 <style lang="scss">
   .pop-below-container {
@@ -23,6 +21,12 @@
     min-height: 110px;
     display: flex;
     justify-content: center;
+    transition: transform 200ms;
+    transform: translate(0, 120px);
+
+    &.show {
+      transform: translate(0, 0);
+    }
   }
 
   .pop-below {
