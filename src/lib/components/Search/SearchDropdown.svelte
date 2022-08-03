@@ -37,7 +37,7 @@
 
     :global(.card) {
       top: 82px;
-      right: 130px;
+      right: 200px;
     }
   }
 </style>

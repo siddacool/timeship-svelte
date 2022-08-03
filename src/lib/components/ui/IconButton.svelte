@@ -23,5 +23,6 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    padding: 0;
   }
 </style>

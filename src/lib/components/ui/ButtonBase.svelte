@@ -24,7 +24,6 @@
     background-color: transparent;
     outline: none;
     cursor: pointer;
-    padding: 0;
     color: inherit;
     transition: color 300ms, background-color 300ms;
     fill: currentColor;

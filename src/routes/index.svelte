@@ -7,6 +7,7 @@
   import Controls from '$lib/components/Controls.svelte';
   import SearchModal from '$lib/components/Search/SearchModal.svelte';
   import SearchDropdown from '$lib/components/Search/SearchDropdown.svelte';
+  import Placeholder from '$lib/components/Placeholder.svelte';
 
   onMount(() => {
     cities.fetchData();
@@ -15,6 +16,7 @@
 
 <main>
   <Clocks />
+  <Placeholder />
 </main>
 <Controls />
 <ReorderPopBelow />

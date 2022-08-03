@@ -1,15 +1,33 @@
 <script lang="ts">
+  import { clocks } from '$lib/stores/clocks';
   import { general } from '$lib/stores/general';
-  import IconButton from './ui/IconButton.svelte';
+  import ButtonTextToggle from './ui/ButtonTextToggle.svelte';
 
   const onSearchOpen = () => {
     general.setSearchModal(true);
   };
 </script>
 
-<div class="contol" class:hide={$general.reorder}>
-  <IconButton elevation color="white" on:click={onSearchOpen}>
-    <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+<div
+  class="contol"
+  class:hide={$general.reorder}
+  class:noClocks={!$clocks.length && !$general.reorder ? true : false}
+>
+  <ButtonTextToggle
+    elevation
+    color="white"
+    on:click={onSearchOpen}
+    responsive
+    showText={!$clocks.length && !$general.reorder ? true : false}
+  >
+    <svg
+      width="33"
+      height="33"
+      viewBox="0 0 33 33"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      slot="icon"
+    >
       <mask
         id="mask0_20_76"
         style="mask-type:alpha"
@@ -28,10 +46,24 @@
         />
       </g>
     </svg>
-  </IconButton>
 
-  <IconButton elevation color="white">
-    <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+    Add City
+  </ButtonTextToggle>
+
+  <ButtonTextToggle
+    elevation
+    color="white"
+    responsive
+    showText={!$clocks.length && !$general.reorder ? true : false}
+  >
+    <svg
+      width="27"
+      height="27"
+      viewBox="0 0 27 27"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      slot="icon"
+    >
       <mask
         id="mask0_20_71"
         style="mask-type:alpha"
@@ -50,7 +82,9 @@
         />
       </g>
     </svg>
-  </IconButton>
+
+    Settings
+  </ButtonTextToggle>
 </div>
 
 <style lang="scss">
@@ -64,7 +98,24 @@
       transform: translate(74px, 0);
 
       @media (min-width: 1024px) {
-        transform: translate(198px, 0);
+        transform: translate(330px, 0);
+      }
+    }
+
+    &.noClocks {
+      @media (max-width: 1023px) {
+        display: flex;
+        position: static;
+        transform: translate(0, 0);
+        align-items: center;
+        justify-content: center;
+        margin-top: 30px;
+      }
+
+      :global(.button-text-toogle) {
+        @media (max-width: 1023px) {
+          margin-right: 16px;
+        }
       }
     }
 
@@ -75,15 +126,23 @@
       right: 40px;
     }
 
-    :global(.icon-button) {
+    :global(.button-text-toogle) {
       width: 55px;
       height: 55px;
       margin-bottom: 16px;
 
       @media (min-width: 1024px) {
-        margin-right: 24px;
+        margin-right: 16px;
         margin-bottom: 0;
       }
+    }
+
+    :global(.button-text-toogle-showText) {
+      width: initial;
+    }
+
+    :global(svg) {
+      margin-right: 0;
     }
   }
 </style>
