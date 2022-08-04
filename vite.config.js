@@ -4,7 +4,7 @@ import { pwaConfiguration } from './pwa-configuration.js';
 
 /** @type {import('vite').UserConfig} */
 const config = {
-  plugins: [sveltekit(), VitePWA(pwaConfiguration)],
+  plugins: [VitePWA(pwaConfiguration), sveltekit()],
 };
 
 export default config;
