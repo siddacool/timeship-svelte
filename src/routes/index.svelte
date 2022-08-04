@@ -8,6 +8,10 @@
   import Placeholder from '$lib/components/Placeholder.svelte';
 </script>
 
+<svelte:head>
+  <title>Timeship</title>
+</svelte:head>
+
 <main>
   <Clocks />
   <Placeholder />
