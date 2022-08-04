@@ -9,7 +9,7 @@
   });
 
   onMount(() => {
-    if (!dev && browser) {
+    if (browser) {
       updateSW();
     }
   });
