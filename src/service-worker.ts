@@ -15,7 +15,10 @@ worker.addEventListener('install', (event) => {
     caches
       .open(FILES)
       .then((cache) => {
-        console.log(cache);
+        const index = to_cache.indexOf('/cities.data.json');
+        if (index > -1) {
+          to_cache.splice(index, 1);
+        }
 
         return cache.addAll(to_cache);
       })
