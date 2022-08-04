@@ -6,6 +6,7 @@
   import SearchModal from '$lib/components/Search/SearchModal.svelte';
   import SearchDropdown from '$lib/components/Search/SearchDropdown.svelte';
   import Placeholder from '$lib/components/Placeholder.svelte';
+  import SettingsModal from '$lib/components/Settings/SettingsModal.svelte';
 </script>
 
 <main>
@@ -16,6 +17,7 @@
 <ReorderPopBelow />
 <SearchModal />
 <SearchDropdown />
+<SettingsModal />
 
 <style lang="scss">
   main {

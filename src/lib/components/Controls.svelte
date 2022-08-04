@@ -4,12 +4,16 @@
   import { general } from '$lib/stores/general';
   import ButtonTextToggle from './ui/ButtonTextToggle.svelte';
 
-  const onSearchOpen = () => {
+  const onSearchClick = () => {
     if (!$cities?.cities.length) {
       cities.fetchData();
     }
 
     general.setSearchModal(true);
+  };
+
+  const onSettingsClick = () => {
+    general.setSettingsModal(true);
   };
 </script>
 
@@ -21,7 +25,7 @@
   <ButtonTextToggle
     elevation
     color="white"
-    on:click={onSearchOpen}
+    on:click={onSearchClick}
     responsive
     showText={!$clocks.length && !$general.reorder ? true : false}
   >
@@ -60,6 +64,7 @@
     color="white"
     responsive
     showText={!$clocks.length && !$general.reorder ? true : false}
+    on:click={onSettingsClick}
   >
     <svg
       width="27"
