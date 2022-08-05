@@ -8,6 +8,7 @@
   import Placeholder from '$lib/components/Placeholder.svelte';
   import SettingsModal from '$lib/components/Settings/SettingsModal.svelte';
   import SettingsDropdown from '$lib/components/Settings/SettingsDropdown.svelte';
+  import ThemeSetter from '$lib/components/ThemeSetter.svelte';
 </script>
 
 <main>
@@ -20,6 +21,7 @@
 <SearchDropdown />
 <SettingsModal />
 <SettingsDropdown />
+<ThemeSetter />
 
 <style lang="scss">
   main {
