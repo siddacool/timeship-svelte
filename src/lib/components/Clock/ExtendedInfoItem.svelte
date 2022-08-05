@@ -9,7 +9,7 @@
 
 <style lang="scss">
   .extended-info-item {
-    font-size: var(--font-size-small);
+    font-size: var(--font-size-normal);
     margin-bottom: 16px;
 
     &:last-child {

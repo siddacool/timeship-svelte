@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let activePosition: number = 0;
+  export let active: number = 0;
   export let total: number = 2;
 
   const widthCalculater = (t: number) => {
@@ -19,7 +19,7 @@
 
   <div
     class="highlighter"
-    style="width: {widthCalculater(total)}%; left: {positionCalculater(total, activePosition)}%;"
+    style="width: {widthCalculater(total)}%; left: {positionCalculater(total, active)}%;"
   >
     <span />
   </div>
@@ -29,12 +29,13 @@
   .switch-button {
     display: flex;
     flex-wrap: nowrap;
-    background-color: var(--color-bg-icon-button-grey);
+    background-color: var(--color-bg-backdrop-t-1);
     height: 70px;
     padding: 8px 4px;
-    border-radius: var(--border-radius-1);
+    border-radius: var(--border-radius-2);
     overflow: hidden;
     position: relative;
+    -webkit-tap-highlight-color: transparent;
   }
 
   :global(.switch-button-section) {
@@ -53,8 +54,9 @@
     span {
       height: 100%;
       display: flex;
-      background-color: var(--color-bg-icon-button-primary-active);
-      border-radius: var(--border-radius-1);
+      background-color: var(--color-bg-icon-button-primary);
+      border-radius: var(--border-radius-2);
+      border: 1px solid var(--color-border-icon-button);
     }
   }
 </style>

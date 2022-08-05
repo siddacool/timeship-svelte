@@ -24,9 +24,27 @@ export interface Clock {
   id?: string | undefined; // cityName__countryCode__timezone
 }
 
-export type SettingsTheme = 'auto' | 'light' | 'dark';
-export type SettingsClockFormat = '12hour' | '24hour';
-export type SettingsCountryFormat = 'countryCode' | 'countryName';
+export enum SettingsThemes {
+  auto,
+  light,
+  dark,
+}
+
+export enum SettingsClockFormats {
+  hour12,
+  hour24,
+}
+
+export enum SettingsCountryFormats {
+  countryName,
+  countryCode,
+}
+
+export type SettingsTheme = SettingsThemes.auto | SettingsThemes.light | SettingsThemes.dark;
+export type SettingsClockFormat = SettingsClockFormats.hour12 | SettingsClockFormats.hour24;
+export type SettingsCountryFormat =
+  | SettingsCountryFormats.countryName
+  | SettingsCountryFormats.countryCode;
 export type SettingsFreezeTimeAt = null | string;
 
 export interface Settings {

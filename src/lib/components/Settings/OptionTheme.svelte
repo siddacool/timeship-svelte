@@ -1,37 +1,33 @@
 <script lang="ts">
   import { settings } from '$lib/stores/settings';
 
-  import type { SettingsTheme } from '$lib/types';
+  import { SettingsThemes, type SettingsTheme } from '$lib/types';
 
   import SwitchButton from '../ui/SwitchButton.svelte';
   import SwitchButtonSection from '../ui/SwitchButtonSection.svelte';
   import ListOption from './ListOption.svelte';
 
-  const themeOptions = ['auto', 'light', 'dark'];
+  let active: number = $settings.theme;
 
-  let activeValue: SettingsTheme = $settings.theme;
-  let activePosition: number = themeOptions.findIndex((d) => d === $settings.theme);
-
-  const onSwitch = (e: { detail: { value: SettingsTheme; position: number } }) => {
+  const onSwitch = (e: { detail: { value: SettingsTheme } }) => {
     const { detail } = e;
-    const { value = 'auto', position = 0 } = detail;
+    const { value = SettingsThemes.auto } = detail;
 
-    activeValue = value;
-    activePosition = position;
+    active = value;
 
     settings.setTheme(value);
   };
 </script>
 
 <ListOption title="Theme">
-  <SwitchButton {activePosition} total={3}>
-    <SwitchButtonSection value="auto" position={0} on:switch={onSwitch} {activePosition}>
+  <SwitchButton {active} total={3}>
+    <SwitchButtonSection value={SettingsThemes.auto} on:switch={onSwitch} {active}>
       auto
     </SwitchButtonSection>
-    <SwitchButtonSection value="light" position={1} on:switch={onSwitch} {activePosition}>
+    <SwitchButtonSection value={SettingsThemes.light} on:switch={onSwitch} {active}>
       light
     </SwitchButtonSection>
-    <SwitchButtonSection value="light" position={2} on:switch={onSwitch} {activePosition}>
+    <SwitchButtonSection value={SettingsThemes.dark} on:switch={onSwitch} {active}>
       dark
     </SwitchButtonSection>
   </SwitchButton>

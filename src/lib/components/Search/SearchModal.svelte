@@ -36,4 +36,12 @@
       display: none;
     }
   }
+
+  .search-modal-body {
+    height: calc(100vh - 36px);
+
+    :global(.card) {
+      height: 100%;
+    }
+  }
 </style>

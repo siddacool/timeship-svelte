@@ -7,6 +7,7 @@
   import SearchDropdown from '$lib/components/Search/SearchDropdown.svelte';
   import Placeholder from '$lib/components/Placeholder.svelte';
   import SettingsModal from '$lib/components/Settings/SettingsModal.svelte';
+  import SettingsDropdown from '$lib/components/Settings/SettingsDropdown.svelte';
 </script>
 
 <main>
@@ -18,6 +19,7 @@
 <SearchModal />
 <SearchDropdown />
 <SettingsModal />
+<SettingsDropdown />
 
 <style lang="scss">
   main {

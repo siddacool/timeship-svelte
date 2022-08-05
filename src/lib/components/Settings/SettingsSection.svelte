@@ -2,6 +2,7 @@
   import { general } from '$lib/stores/general';
 
   import IconButton from '../ui/IconButton.svelte';
+  import OptionCountryName from './OptionCountryName.svelte';
   import OptionTheme from './OptionTheme.svelte';
   import OptionTimeFormat from './OptionTimeFormat.svelte';
 
@@ -48,6 +49,7 @@
   <ul>
     <OptionTheme />
     <OptionTimeFormat />
+    <OptionCountryName />
   </ul>
 </div>
 
