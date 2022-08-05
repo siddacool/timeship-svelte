@@ -33,7 +33,7 @@
   <div class="clock" class:draggable={$general.reorder}>
     <DragHandle isActive={$general.reorder} />
     <Time {timezone} />
-    <City {cityNameNative} {cityName} {countryName} />
+    <City {cityNameNative} {cityName} {countryName} {countryCode} />
     <RederderBtn isActive={showExtendedInfo && !$general.reorder} {closeExtendedInfo} />
     <DeleteButton isActive={$general.reorder} {id} />
     <ExtendedInfo {timezone} isActive={showExtendedInfo && !$general.reorder} />
