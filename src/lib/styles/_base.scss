@@ -2,52 +2,6 @@
   box-sizing: border-box;
 }
 
-:root {
-  // colors
-  --color-bg-backdrop: #ededed;
-  --color-bg-surface-main: #fff;
-  --color-bg-grey-1: #f9f9f9;
-  --color-bg-backdrop-t-1: rgb(0 0 0 / 3%);
-
-  --color-font-main: #464646;
-  --color-font-grey-1: #858585;
-  --color-font-grey-2: #7d7d7d;
-
-  --color-shadow: 0deg 0% 64%;
-
-  --color-border-icon-button: #a0a0a0;
-  --color-border-text-box-grey-1: #dfdfdf;
-
-  --color-bg-icon-button-default-hover: #ececec;
-  --color-bg-icon-button-default-active: #d1d1d1;
-
-  --color-bg-icon-button-grey: #ececec;
-  --color-bg-icon-button-grey-hover: #e6e4e4;
-  --color-bg-icon-button-grey-active: #d1d1d1;
-
-  --color-bg-icon-button-white: #fff;
-  --color-bg-icon-button-white-hover: #e6e4e4;
-  --color-bg-icon-button-white-active: #d1d1d1;
-
-  --color-bg-icon-button-primary: #ececec;
-  --color-bg-icon-button-primary-hover: #e6e4e4;
-  --color-bg-icon-button-primary-active: #d1d1d1;
-
-  // units
-  --border-radius-1: 6px;
-  --border-radius-2: 31px;
-
-  --font-size-x-large: 3rem;
-  --font-size-large: 2.75rem;
-  --font-size-medium: 1.25rem;
-  --font-size-normal: 1rem;
-
-  --font-weight-black: 700;
-  --font-weight-bold: 600;
-  --font-weight-semi-bold: 517;
-  --font-weight-normal: 400;
-}
-
 body {
   margin: 0;
   padding: 0;
