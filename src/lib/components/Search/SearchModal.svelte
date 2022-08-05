@@ -21,7 +21,7 @@
 </script>
 
 <div class="search-modal">
-  <Modal show={$general.searchModalOpen} on:close={onClose}>
+  <Modal show={$general.searchModalOpen} on:close={onClose} mobileOnly>
     <div class="search-modal-body">
       <Card elevation>
         <SearchSection {focus} />
@@ -29,19 +29,3 @@
     </div>
   </Modal>
 </div>
-
-<style lang="scss">
-  .search-modal {
-    @media (min-width: 1024px) {
-      display: none;
-    }
-  }
-
-  .search-modal-body {
-    height: calc(100vh - 36px);
-
-    :global(.card) {
-      height: 100%;
-    }
-  }
-</style>

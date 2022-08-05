@@ -10,7 +10,7 @@
 </script>
 
 <div class="settings-modal">
-  <Modal show={$general.settingsModalOpen} on:close={onClose}>
+  <Modal show={$general.settingsModalOpen} on:close={onClose} mobileOnly>
     <div class="settings-modal-body">
       <Card elevation>
         <SettingsSection />
@@ -18,19 +18,3 @@
     </div>
   </Modal>
 </div>
-
-<style lang="scss">
-  .settings-modal {
-    @media (min-width: 1024px) {
-      display: none;
-    }
-  }
-
-  .settings-modal-body {
-    height: calc(100vh - 36px);
-
-    :global(.card) {
-      height: 100%;
-    }
-  }
-</style>

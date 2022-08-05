@@ -55,11 +55,11 @@
 
 <style lang="scss">
   .settings-section {
-    padding: 12px;
     position: relative;
   }
 
   header {
+    padding: 12px;
     display: flex;
     justify-content: space-between;
 
@@ -79,7 +79,7 @@
   }
 
   ul {
-    max-height: 400px;
+    max-height: 500px;
     overflow-y: auto;
     margin: 0;
     padding: 0;

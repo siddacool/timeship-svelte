@@ -1,6 +1,7 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
   export let show: boolean = false;
+  export let mobileOnly: boolean = false;
 
   const dispatch = createEventDispatcher();
 
@@ -10,7 +11,7 @@
 </script>
 
 {#if show}
-  <div class="modal">
+  <div class="modal" class:mobileOnly>
     <div class="backdrop" on:click={closeEvent} />
 
     <div class="content">
@@ -33,6 +34,12 @@
 
     @media (min-width: 1024px) {
       padding-top: 10%;
+    }
+
+    &.mobileOnly {
+      @media (min-width: 1024px) {
+        display: none;
+      }
     }
 
     .backdrop {

@@ -16,7 +16,6 @@ specifiers:
   svelte-check: ^2.8.0
   svelte-dnd-action: ^0.9.19
   svelte-preprocess: ^4.10.7
-  svelte-tiny-virtual-list: ^2.0.5
   tslib: ^2.4.0
   typescript: ^4.7.4
   vite: ^3.0.1
@@ -24,7 +23,6 @@ specifiers:
 dependencies:
   dayjs: 1.11.3
   svelte-dnd-action: 0.9.19
-  svelte-tiny-virtual-list: 2.0.5
 
 devDependencies:
   '@sveltejs/adapter-static': 1.0.0-next.37
@@ -1512,10 +1510,6 @@ packages:
       svelte: 3.49.0
       typescript: 4.7.4
     dev: true
-
-  /svelte-tiny-virtual-list/2.0.5:
-    resolution: {integrity: sha512-xg9ckb8UeeIme4/5qlwCrl2QNmUZ8SCQYZn3Ji83cUsoASqRNy3KWjpmNmzYvPDqCHSZjruBBsoB7t5hwuzw5g==}
-    dev: false
 
   /svelte/3.49.0:
     resolution: {integrity: sha512-+lmjic1pApJWDfPCpUUTc1m8azDqYCG1JN9YEngrx/hUyIcFJo6VZhj0A1Ai0wqoHcEIuQy+e9tk+4uDgdtsFA==}

@@ -61,7 +61,7 @@ export const getFilteredCities = (citiesData: CitiesData, searchFilter: string) 
     ...newDataIncludes,
     ...newDataCountryStartsWith,
     ...newDataCountryIncludes,
-  ];
+  ].slice(0, 60);
 };
 
 export const cities = createCities();

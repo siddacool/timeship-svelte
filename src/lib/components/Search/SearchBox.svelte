@@ -1,5 +1,4 @@
 <script lang="ts">
-  import VirtualList from 'svelte-tiny-virtual-list';
   import { cities, getFilteredCities } from '$lib/stores/cities';
   import { search } from '$lib/stores/search';
   import SearchResult from './SearchResult.svelte';
@@ -12,11 +11,11 @@
 <div class="searchBox">
   <div class="list">
     {#if $cities?.cities.length && citiesList.length}
-      <VirtualList width="100%" height={400} itemCount={citiesList.length} itemSize={50}>
-        <div slot="item" let:index let:style {style}>
-          <SearchResult city={citiesList[index]} />
+      {#each citiesList as city}
+        <div style="height: 50px">
+          <SearchResult {city} />
         </div>
-      </VirtualList>
+      {/each}
     {:else if $cities?.cities.length && !citiesList.length}
       <div style="height: 50px">
         <SearchResultBase preventHover={true}>
@@ -43,6 +42,17 @@
 
     :global(.searchResultBase) {
       justify-content: center;
+    }
+  }
+
+  .list {
+    min-height: 200px;
+    max-height: clamp(200px, 55vh, 500px);
+    overflow: auto;
+
+    @media (min-width: 1024px) {
+      min-height: initial;
+      max-height: clamp(200px, 30vh, 500px);
     }
   }
 </style>
