@@ -17,6 +17,12 @@
 </div>
 
 <style lang="scss">
+  .city {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+  }
+
   .main {
     font-size: var(--font-size-large);
     font-weight: var(--font-weight-normal);

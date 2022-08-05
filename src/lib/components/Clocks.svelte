@@ -7,6 +7,7 @@
   import Clock from './Clock';
   import { time } from '$lib/stores/time';
   import { general } from '$lib/stores/general';
+  import { longpress } from '$lib/directives/longpress';
 
   interface DragEvent {
     detail: {
@@ -52,7 +53,12 @@
     class="clocks"
   >
     {#each $clocks as clock (clock.id)}
-      <li class="clock-wrapper" animate:flip={{ duration: flipDurationMs }}>
+      <li
+        class="clock-wrapper"
+        animate:flip={{ duration: flipDurationMs }}
+        use:longpress
+        on:long={general.enableReorder}
+      >
         <Clock {...clock} id={clock.id} cityNameNative={clock.cityNameNative} />
       </li>
     {/each}
@@ -71,6 +77,6 @@
   .clock-wrapper {
     display: flex;
     width: 100%;
-    margin-bottom: 16px;
+    margin-bottom: 24px;
   }
 </style>

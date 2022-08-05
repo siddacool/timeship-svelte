@@ -49,6 +49,7 @@
   .clock {
     padding: 0 9px;
     padding-top: 4px;
+    padding-bottom: 4px;
     padding-right: 58px;
     transition: padding 300ms;
 
