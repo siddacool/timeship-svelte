@@ -83,6 +83,7 @@
     overflow-y: auto;
     margin: 0;
     padding: 0;
-    padding: 20px 0;
+    padding-top: 20px;
+    padding-bottom: 10px;
   }
 </style>

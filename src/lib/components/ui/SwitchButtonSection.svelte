@@ -29,6 +29,8 @@
     position: relative;
     z-index: 21;
     transition: background-color 200ms;
+    fill: currentColor;
+    font-weight: var(--font-weight-semi-bold);
 
     &:not(.activePosition) {
       &:hover {

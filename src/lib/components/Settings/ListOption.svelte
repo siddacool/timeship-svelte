@@ -16,9 +16,15 @@
     font-size: var(--font-size-normal);
     font-weight: var(--font-weight-normal);
 
+    &:last-child {
+      padding-bottom: 0;
+    }
+
     span {
       display: block;
       padding-bottom: 10px;
+      font-weight: var(--font-weight-semi-bold);
+      font-size: 0.9rem;
     }
 
     div {
