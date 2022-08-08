@@ -2,7 +2,7 @@
 
 import { build, files, version } from '$service-worker';
 
-const excludeFiles = ['/cities.data.json'];
+const excludeFiles = ['/google573023f379f7259c.html', '/BingSiteAuth.xml'];
 
 const worker = self as unknown as ServiceWorkerGlobalScope;
 const FILES = `cache${version}`;

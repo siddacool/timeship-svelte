@@ -3,7 +3,7 @@ import dayjs, { Dayjs } from 'dayjs';
 import utc from 'dayjs/plugin/utc.js';
 import tz from 'dayjs/plugin/timezone.js';
 import customParseFormat from 'dayjs/plugin/customParseFormat.js';
-import type { City, Clock } from './types';
+import type { Clock } from './types';
 
 dayjs.extend(utc);
 dayjs.extend(tz);
@@ -76,15 +76,6 @@ export const getStoredValue = (name: string, substitute: unknown) => {
 };
 
 export const setStoredValue = (name: string, value: unknown) => {
-  if (!browser) {
-    return;
-  }
-
-  localStorage.setItem(`timeship__${name}`, JSON.stringify(value));
-  return;
-};
-
-export const generateFzId = (city: City) => {
   if (!browser) {
     return;
   }
