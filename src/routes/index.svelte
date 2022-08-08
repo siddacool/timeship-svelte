@@ -4,7 +4,6 @@
   import { time } from '$lib/stores/time';
   import { clocks } from '$lib/stores/clocks';
   import ReorderPopBelow from '$lib/components/ReorderPopBelow.svelte';
-  import Controls from '$lib/components/Controls.svelte';
   import SearchModal from '$lib/components/Search/SearchModal.svelte';
   import SearchDropdown from '$lib/components/Search/SearchDropdown.svelte';
   import Placeholder from '$lib/components/Placeholder.svelte';
@@ -35,7 +34,11 @@
   {/if}
   <Placeholder />
 </main>
-<Controls />
+
+{#await import('$lib/components/Controls.svelte') then c}
+  <svelte:component this={c.default} />
+{/await}
+
 <ReorderPopBelow />
 <SearchModal />
 <SearchDropdown />

@@ -29,6 +29,7 @@
     on:click={onSearchClick}
     responsive
     showText={!$clocks.length && !$general.reorder ? true : false}
+    class="add-city"
   >
     <svg
       width="33"
@@ -67,6 +68,7 @@
     responsive
     showText={!$clocks.length && !$general.reorder ? true : false}
     on:click={onSettingsClick}
+    class="settings"
   >
     <svg
       width="27"
@@ -155,6 +157,30 @@
 
     :global(svg) {
       margin-right: 0;
+    }
+
+    :global(.add-city) {
+      background-color: var(--color-bg-button-main);
+
+      &:hover {
+        background-color: var(--color-bg-button-main-hover);
+      }
+
+      &:active {
+        background-color: var(--color-bg-button-main-active);
+      }
+    }
+
+    :global(.settings) {
+      background-color: var(--color-bg-button-secondary);
+
+      &:hover {
+        background-color: var(--color-bg-button-secondary-hover);
+      }
+
+      &:active {
+        background-color: var(--color-bg-button-secondary-active);
+      }
     }
   }
 </style>

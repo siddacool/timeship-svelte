@@ -3,7 +3,7 @@ import dayjs, { Dayjs } from 'dayjs';
 import utc from 'dayjs/plugin/utc.js';
 import tz from 'dayjs/plugin/timezone.js';
 import customParseFormat from 'dayjs/plugin/customParseFormat.js';
-import type { Clock } from './types';
+import { SettingsThemes, type Clock, type SettingsTheme } from './types';
 
 dayjs.extend(utc);
 dayjs.extend(tz);
@@ -82,4 +82,37 @@ export const setStoredValue = (name: string, value: unknown) => {
 
   localStorage.setItem(`timeship__${name}`, JSON.stringify(value));
   return;
+};
+
+export const setTheme = (theme: SettingsTheme) => {
+  if (browser) {
+    const light = '#e7f2f7';
+    const dark = '#e7e7e7';
+    const bodyItem = document.querySelector('body');
+    const themeColor = document.querySelector('meta[name="theme-color"]');
+
+    switch (theme) {
+      case SettingsThemes.auto:
+        // eslint-disable-next-line no-case-declarations
+        const prefersDark =
+          window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if (prefersDark) {
+          bodyItem?.setAttribute('data-theme', 'dark');
+          themeColor?.setAttribute('content', dark);
+        } else {
+          bodyItem?.setAttribute('data-theme', 'light');
+          themeColor?.setAttribute('content', light);
+        }
+
+        break;
+      case SettingsThemes.dark:
+        bodyItem?.setAttribute('data-theme', 'dark');
+        themeColor?.setAttribute('content', dark);
+        break;
+      default:
+        bodyItem?.setAttribute('data-theme', 'light');
+        themeColor?.setAttribute('content', light);
+    }
+  }
 };

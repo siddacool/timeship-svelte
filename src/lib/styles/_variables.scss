@@ -35,6 +35,14 @@
   --color-bg-button-danger-hover: #f3dad9;
   --color-bg-button-danger-active: #edcfcd;
 
+  --color-bg-button-main: #bac9ff;
+  --color-bg-button-main-hover: #a2b6ff;
+  --color-bg-button-main-active: #899ce0;
+
+  --color-bg-button-secondary: var(--color-bg-button-primary);
+  --color-bg-button-secondary-hover: var(--color-bg-button-primary-hover);
+  --color-bg-button-secondary-active: var(--color-bg-button-primary-active);
+
   // units
   --border-radius-1: 6px;
   --border-radius-2: 31px;
