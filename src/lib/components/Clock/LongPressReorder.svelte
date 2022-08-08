@@ -17,7 +17,7 @@
   .longpress-reorder {
     position: absolute;
     height: 100%;
-    width: calc(100% - 110px);
+    width: 50%;
     left: 40px;
     top: 0;
     cursor: pointer;

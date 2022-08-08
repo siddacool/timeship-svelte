@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { clocks } from '$lib/stores/clocks';
   import { general } from '$lib/stores/general';
   import type { CityName, CityNameNative, CountryCode, CountryName, Timezone } from '$lib/types';
   import Card from '../ui/Card.svelte';
