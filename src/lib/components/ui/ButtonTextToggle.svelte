@@ -8,6 +8,7 @@
   export let elevation: boolean = false;
   export let showText: boolean = false;
   export let responsive: boolean = false;
+  export let name: string = '';
 </script>
 
 <ButtonBase
@@ -18,6 +19,7 @@
   class={`button-text-toogle ${showText ? 'button-text-toogle-showText' : ''} ${
     responsive ? 'button-text-toogle-responsive' : ''
   } ${$$props.class ? $$props.class : ''}`}
+  {name}
 >
   <slot name="icon" />
   <div class="btn-text" class:showText class:responsive><slot /></div>

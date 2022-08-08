@@ -23,6 +23,7 @@
   class:noClocks={!$clocks.length && !$general.reorder ? true : false}
 >
   <ButtonTextToggle
+    name="add city"
     elevation
     color="white"
     on:click={onSearchClick}
@@ -61,6 +62,7 @@
 
   <ButtonTextToggle
     elevation
+    name="Settings"
     color="white"
     responsive
     showText={!$clocks.length && !$general.reorder ? true : false}

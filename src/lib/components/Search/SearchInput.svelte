@@ -48,6 +48,7 @@
       </svg>
     </span>
 
+    <!-- svelte-ignore a11y-autofocus -->
     <input
       type="text"
       value={$search}
@@ -58,7 +59,7 @@
 
     {#if $search && $search.trim() !== ''}
       <span class="icon icon--close">
-        <IconButton on:click={onClear}>
+        <IconButton on:click={onClear} name="Clear search">
           <svg
             width="24"
             height="24"

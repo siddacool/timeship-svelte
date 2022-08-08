@@ -16,7 +16,7 @@
     <h2>Settings</h2>
 
     <span class="icon icon--close">
-      <IconButton on:click={onClose}>
+      <IconButton on:click={onClose} name="Close settings">
         <svg
           width="24"
           height="24"

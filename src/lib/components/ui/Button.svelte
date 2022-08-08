@@ -6,6 +6,7 @@
   export let outline: boolean = false;
   export let color: BtnColor = 'default';
   export let elevation: boolean = false;
+  export let name: string = '';
 </script>
 
 <ButtonBase
@@ -13,6 +14,7 @@
   {elevation}
   {outline}
   {color}
+  {name}
   class={`button ${$$props.class ? $$props.class : ''}`}
 >
   <slot />
