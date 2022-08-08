@@ -1,5 +1,6 @@
 <script lang="ts">
   import { flip } from 'svelte/animate';
+  import { press } from 'svelte-gestures';
   import { onMount } from 'svelte';
   import { dndzone } from 'svelte-dnd-action';
   import { clocks } from '$lib/stores/clocks';
@@ -7,7 +8,6 @@
   import Clock from './Clock';
   import { time } from '$lib/stores/time';
   import { general } from '$lib/stores/general';
-  import { longpress } from '$lib/directives/longpress';
 
   interface DragEvent {
     detail: {
@@ -56,8 +56,8 @@
       <li
         class="clock-wrapper"
         animate:flip={{ duration: flipDurationMs }}
-        use:longpress
-        on:long={general.enableReorder}
+        use:press={{ timeframe: 500, triggerBeforeFinished: true }}
+        on:press={general.enableReorder}
       >
         <Clock {...clock} id={clock.id} cityNameNative={clock.cityNameNative} />
       </li>
