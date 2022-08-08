@@ -11,9 +11,9 @@ function createCities() {
     subscribe,
     fetchData: async () => {
       try {
-        const data = await fetchYou('./cities.data.json');
-
-        console.log(data);
+        const data = await fetchYou(
+          'https://cdn.jsdelivr.net/gh/siddacool/timeship-svelte@main/static/cities.data.json'
+        );
 
         return update(() => data);
       } catch (e) {
