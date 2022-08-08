@@ -1,5 +1,7 @@
 <script lang="ts">
   import '$lib/styles/index.scss';
+  import { onMount } from 'svelte';
+  import { time } from '$lib/stores/time';
   import { clocks } from '$lib/stores/clocks';
   import ReorderPopBelow from '$lib/components/ReorderPopBelow.svelte';
   import Controls from '$lib/components/Controls.svelte';
@@ -9,6 +11,20 @@
   import SettingsModal from '$lib/components/Settings/SettingsModal.svelte';
   import SettingsDropdown from '$lib/components/Settings/SettingsDropdown.svelte';
   import ThemeSetter from '$lib/components/ThemeSetter.svelte';
+
+  onMount(() => {
+    let frame: number;
+
+    function loop() {
+      frame = requestAnimationFrame(loop);
+
+      time.setTime();
+    }
+
+    loop();
+
+    return () => cancelAnimationFrame(frame);
+  });
 </script>
 
 <main>

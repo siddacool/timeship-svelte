@@ -18,7 +18,7 @@
 </script>
 
 <PopBelow show={$general.reorder}>
-  <Button outline color="primary" on:click={() => handleCancel()} name="Cancel">
+  <Button outline color="grey" on:click={() => handleCancel()} name="Cancel">
     <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24">
       <path
         d="m6.4 19.2-1.6-1.6 5.6-5.6-5.6-5.6 1.6-1.6 5.6 5.6 5.6-5.6 1.6 1.6-5.6 5.6 5.6 5.6-1.6 1.6-5.6-5.6Z"

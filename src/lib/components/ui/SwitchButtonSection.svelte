@@ -34,7 +34,7 @@
 
     &:not(.activePosition) {
       &:hover {
-        background-color: var(--color-bg-icon-button-grey-hover);
+        background-color: var(--color-bg-backdrop-t-1);
       }
     }
   }

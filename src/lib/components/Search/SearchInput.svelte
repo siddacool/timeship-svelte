@@ -104,18 +104,31 @@
       height: 40px;
       width: 100%;
       border-radius: 22px;
-      background-color: var(--color-bg-grey-1);
+      background-color: var(--color-bg-backdrop-t-1);
       border: 1px solid var(--color-border-text-box-grey-1);
       padding: 0 40px;
       outline: none;
       color: inherit;
       font-size: var(--font-size-medium);
       font-weight: var(--font-weight-normal);
+
+      &::-webkit-input-placeholder {
+        /* Edge */
+        color: currentColor;
+      }
+
+      &:-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        color: currentColor;
+      }
+
+      &::placeholder {
+        color: currentColor;
+      }
     }
 
     .icon {
       position: absolute;
-      color: var(--color-font-grey-2);
       display: inline-flex;
 
       &--search {
@@ -127,6 +140,10 @@
       &--close {
         top: 0;
         right: 1px;
+
+        path {
+          fill: currentColor;
+        }
       }
     }
 

@@ -38,65 +38,66 @@
     }
 
     &.outline {
-      border: 1px solid var(--color-border-icon-button);
+      border: 1px solid var(--color-border-button);
     }
 
     &.color {
       &--default {
         &:hover {
-          background-color: var(--color-bg-icon-button-default-hover);
+          background-color: var(--color-bg-button-default-hover);
         }
 
         &:active {
-          background-color: var(--color-bg-icon-button-default-active);
+          background-color: var(--color-bg-button-default-active);
         }
       }
 
       &--grey {
-        background-color: var(--color-bg-icon-button-grey);
+        background-color: var(--color-bg-button-grey);
 
         &:hover {
-          background-color: var(--color-bg-icon-button-grey-hover);
+          background-color: var(--color-bg-button-grey-hover);
         }
 
         &:active {
-          background-color: var(--color-bg-icon-button-grey-active);
+          background-color: var(--color-bg-button-grey-active);
         }
       }
 
       &--white {
-        background-color: var(--color-bg-icon-button-white);
+        background-color: var(--color-bg-button-white);
 
         &:hover {
-          background-color: var(--color-bg-icon-button-white-hover);
+          background-color: var(--color-bg-button-white-hover);
         }
 
         &:active {
-          background-color: var(--color-bg-icon-button-white-active);
+          background-color: var(--color-bg-button-white-active);
         }
       }
 
       &--primary {
-        background-color: var(--color-bg-icon-button-primary);
+        background-color: var(--color-bg-button-primary);
 
         &:hover {
-          background-color: var(--color-bg-icon-button-primary-hover);
+          background-color: var(--color-bg-button-primary-hover);
         }
 
         &:active {
-          background-color: var(--color-bg-icon-button-primary-active);
+          background-color: var(--color-bg-button-primary-active);
         }
       }
 
       &--danger {
-        background-color: var(--color-bg-icon-button-danger);
+        color: var(--color-font-button-danger);
+        background-color: var(--color-bg-button-danger);
 
         &:hover {
-          background-color: var(--color-bg-icon-button-danger-hover);
+          background-color: var(--color-bg-button-danger-hover);
         }
 
         &:active {
-          background-color: var(--color-bg-icon-button-danger-active);
+          background-color: var(--color-bg-button-danger-active);
         }
       }
     }

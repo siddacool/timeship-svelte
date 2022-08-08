@@ -1,11 +1,9 @@
 <script lang="ts">
   import { flip } from 'svelte/animate';
-  import { onMount } from 'svelte';
   import { dndzone } from 'svelte-dnd-action';
   import { clocks } from '$lib/stores/clocks';
   import type { Clock as ClockType } from '$lib/types';
   import Clock from './Clock';
-  import { time } from '$lib/stores/time';
   import { general } from '$lib/stores/general';
 
   interface DragEvent {
@@ -23,20 +21,6 @@
   const handleDndFinalize = (e: DragEvent) => {
     clocks.organize(e.detail.items);
   };
-
-  onMount(() => {
-    let frame: number;
-
-    function loop() {
-      frame = requestAnimationFrame(loop);
-
-      time.setTime();
-    }
-
-    loop();
-
-    return () => cancelAnimationFrame(frame);
-  });
 </script>
 
 <ul

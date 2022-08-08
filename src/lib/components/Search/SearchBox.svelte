@@ -17,11 +17,13 @@
         </div>
       {/each}
     {:else if $cities?.cities.length && !citiesList.length}
-      <div style="height: 50px">
-        <SearchResultBase preventHover={true}>
-          <span>No results</span>
-        </SearchResultBase>
-      </div>
+      {#if $search}
+        <div style="height: 50px">
+          <SearchResultBase preventHover={true}>
+            <span>No results</span>
+          </SearchResultBase>
+        </div>
+      {/if}
     {:else}
       <div style="height: 50px" class="loading">
         <SearchResultBase preventHover={true}>

@@ -54,9 +54,9 @@
     span {
       height: 100%;
       display: flex;
-      background-color: var(--color-bg-icon-button-primary);
+      background-color: var(--color-bg-button-primary);
       border-radius: var(--border-radius-2);
-      border: 1px solid var(--color-border-icon-button);
+      border: 1px solid var(--color-border-button);
     }
   }
 </style>
