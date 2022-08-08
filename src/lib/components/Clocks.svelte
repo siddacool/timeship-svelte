@@ -1,6 +1,5 @@
 <script lang="ts">
   import { flip } from 'svelte/animate';
-  import { press } from 'svelte-gestures';
   import { onMount } from 'svelte';
   import { dndzone } from 'svelte-dnd-action';
   import { clocks } from '$lib/stores/clocks';
@@ -53,12 +52,7 @@
     class="clocks"
   >
     {#each $clocks as clock (clock.id)}
-      <li
-        class="clock-wrapper"
-        animate:flip={{ duration: flipDurationMs }}
-        use:press={{ timeframe: 500, triggerBeforeFinished: true }}
-        on:press={general.enableReorder}
-      >
+      <li class="clock-wrapper" animate:flip={{ duration: flipDurationMs }}>
         <Clock {...clock} id={clock.id} cityNameNative={clock.cityNameNative} />
       </li>
     {/each}

@@ -8,6 +8,7 @@
   import DragHandle from './DragHandle.svelte';
   import ExpandBtn from './ExpandBtn.svelte';
   import ExtendedInfo from './ExtendedInfo.svelte';
+  import LongPressReorder from './LongPressReorder.svelte';
   import RederderBtn from './RederderBtn.svelte';
   import Time from './Time.svelte';
 
@@ -32,6 +33,7 @@
 <Card>
   <div class="clock" class:draggable={$general.reorder}>
     <DragHandle isActive={$general.reorder} />
+    <LongPressReorder isActive={!$general.reorder && !showExtendedInfo} />
     <Time {timezone} />
     <City {cityNameNative} {cityName} {countryName} {countryCode} />
     <RederderBtn isActive={showExtendedInfo && !$general.reorder} {closeExtendedInfo} />
