@@ -1,6 +1,6 @@
 <script lang="ts">
   import '$lib/styles/index.scss';
-  import Clocks from '$lib/components/Clocks.svelte';
+  import { clocks } from '$lib/stores/clocks';
   import ReorderPopBelow from '$lib/components/ReorderPopBelow.svelte';
   import Controls from '$lib/components/Controls.svelte';
   import SearchModal from '$lib/components/Search/SearchModal.svelte';
@@ -12,7 +12,11 @@
 </script>
 
 <main>
-  <Clocks />
+  {#if $clocks.length}
+    {#await import('$lib/components/Clocks.svelte') then c}
+      <svelte:component this={c.default} />
+    {/await}
+  {/if}
   <Placeholder />
 </main>
 <Controls />
