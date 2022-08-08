@@ -116,3 +116,18 @@ export const setTheme = (theme: SettingsTheme) => {
     }
   }
 };
+
+export const generateNumberArray = (total = 1) => {
+  const toRetun = [];
+
+  for (let index = 1; index <= total; index++) {
+    toRetun.push(index);
+  }
+
+  return toRetun;
+};
+
+export const getRandomNumber = (total = 11) =>
+  generateNumberArray(total).reduce((a, c, i, o) => {
+    return o[Math.floor(Math.random() * Math.floor(o.length))];
+  });

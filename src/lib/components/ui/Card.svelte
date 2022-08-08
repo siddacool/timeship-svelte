@@ -2,7 +2,11 @@
   export let elevation: boolean = false;
 </script>
 
-<div class={`card ${$$props.class ? $$props.class : ''}`} class:elevation>
+<div
+  class={`card ${$$props.class ? $$props.class : ''}`}
+  class:elevation
+  style={`${$$props.style ? $$props.style : ''}`}
+>
   <slot />
 </div>
 

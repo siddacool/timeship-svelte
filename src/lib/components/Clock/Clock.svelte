@@ -1,6 +1,7 @@
 <script lang="ts">
   import { general } from '$lib/stores/general';
   import type { CityName, CityNameNative, CountryCode, CountryName, Timezone } from '$lib/types';
+  import { getRandomNumber } from '$lib/utils';
   import Card from '../ui/Card.svelte';
   import City from './City.svelte';
   import DeleteButton from './DeleteButton.svelte';
@@ -27,9 +28,12 @@
   const closeExtendedInfo = () => {
     showExtendedInfo = false;
   };
+
+  const randomNuber = getRandomNumber(11);
+  const bgColor = `--color-bg-clock-${randomNuber}`;
 </script>
 
-<Card>
+<Card style="background-color: var({$general.reorder ? '--color-bg-surface-main' : bgColor})">
   <div class="clock" class:draggable={$general.reorder}>
     <DragHandle isActive={$general.reorder} />
     <LongPressReorder isActive={!$general.reorder && !showExtendedInfo} />
