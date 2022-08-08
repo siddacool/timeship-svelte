@@ -12,7 +12,7 @@
   class:elevation
   class:outline
   class={`button-base color--${color} ${$$props.class ? $$props.class : ''}`}
-  {name}
+  aria-label={name}
 >
   <slot />
 </button>
