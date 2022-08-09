@@ -3,12 +3,7 @@
   import { onMount } from 'svelte';
   import { time } from '$lib/stores/time';
   import { clocks } from '$lib/stores/clocks';
-  import ReorderPopBelow from '$lib/components/ReorderPopBelow.svelte';
-  import SearchModal from '$lib/components/Search/SearchModal.svelte';
-  import SearchDropdown from '$lib/components/Search/SearchDropdown.svelte';
   import Placeholder from '$lib/components/Placeholder.svelte';
-  import SettingsModal from '$lib/components/Settings/SettingsModal.svelte';
-  import SettingsDropdown from '$lib/components/Settings/SettingsDropdown.svelte';
   import ThemeSetter from '$lib/components/ThemeSetter.svelte';
 
   onMount(() => {
@@ -26,6 +21,7 @@
   });
 </script>
 
+<ThemeSetter />
 <main>
   {#if $clocks.length}
     {#await import('$lib/components/Clocks.svelte') then c}
@@ -35,16 +31,9 @@
   <Placeholder />
 </main>
 
-{#await import('$lib/components/Controls.svelte') then c}
+{#await import('$lib/components/ModalAndControl.svelte') then c}
   <svelte:component this={c.default} />
 {/await}
-
-<ReorderPopBelow />
-<SearchModal />
-<SearchDropdown />
-<SettingsModal />
-<SettingsDropdown />
-<ThemeSetter />
 
 <style lang="scss">
   main {
