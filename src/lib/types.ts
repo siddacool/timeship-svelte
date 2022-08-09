@@ -22,6 +22,7 @@ export interface Clock {
   countryCode: CountryCode;
   timezone: Timezone;
   id?: string | undefined; // cityName__countryCode__timezone
+  color: string;
 }
 
 export enum SettingsThemes {

@@ -18,6 +18,7 @@
   export let countryName: CountryName;
   export let timezone: Timezone;
   export let countryCode: CountryCode;
+  export let color: string = '';
 
   let showExtendedInfo = false;
 
@@ -28,15 +29,13 @@
   const closeExtendedInfo = () => {
     showExtendedInfo = false;
   };
-
-  const randomNuber = getRandomNumber(11);
-  const bgColor = `--color-bg-clock-${randomNuber}`;
-  const fontColor = `--color-font-clock-${randomNuber}`;
 </script>
 
 <Card
-  style="background-color: var({$general.reorder ? '--color-bg-surface-main' : bgColor});
-    color: var({$general.reorder ? '--color-font-main' : fontColor})"
+  style="background-color: var({$general.reorder
+    ? '--color-bg-surface-main'
+    : `--color-bg-clock-${color}`});
+    color: var({$general.reorder ? '--color-font-main' : `--color-font-clock-${color}`})"
 >
   <div class="clock" class:draggable={$general.reorder}>
     <DragHandle isActive={$general.reorder} />

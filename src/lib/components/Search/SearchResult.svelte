@@ -2,7 +2,7 @@
   import type { City } from '$lib/types';
   import { cities } from '$lib/stores/cities';
   import { clocks } from '$lib/stores/clocks';
-  import { generateClockId } from '$lib/utils';
+  import { generateClockId, getRandomNumber } from '$lib/utils';
   import { search } from '$lib/stores/search';
   import SearchResultBase from './SearchResultBase.svelte';
   import { general } from '$lib/stores/general';
@@ -22,9 +22,11 @@
     countryCode,
     timezone,
     id: '',
+    color: '',
   };
 
   addData.id = generateClockId(addData);
+  addData.color = `${getRandomNumber(11)}`;
 
   const ifExistInClocks = $clocks.find((d) => d.id === addData.id) ? true : false;
 
