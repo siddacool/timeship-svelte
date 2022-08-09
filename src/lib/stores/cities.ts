@@ -12,7 +12,7 @@ function createCities() {
     fetchData: async () => {
       try {
         const data = await fetchYou(
-          'https://cdn.jsdelivr.net/gh/siddacool/timeship-svelte@main/src/data/cities.data.json'
+          'https://cdn.jsdelivr.net/gh/siddacool/open-data@main/src/cities-tz.json'
         );
 
         return update(() => data);
