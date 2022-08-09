@@ -5,8 +5,10 @@
   import SearchDropdown from './Search/SearchDropdown.svelte';
   import SettingsModal from './Settings/SettingsModal.svelte';
   import SettingsDropdown from './Settings/SettingsDropdown.svelte';
+  import Clocks from './Clocks.svelte';
 </script>
 
+<Clocks />
 <Controls />
 <ReorderPopBelow />
 <SearchModal />

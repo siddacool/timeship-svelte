@@ -23,23 +23,25 @@
   };
 </script>
 
-<ul
-  use:dndzone={{
-    items: $clocks,
-    flipDurationMs,
-    dragDisabled: !$general.reorder,
-    dropTargetStyle: { outline: 'none' },
-  }}
-  on:consider={handleDndConsider}
-  on:finalize={handleDndFinalize}
-  class="clocks"
->
-  {#each $clocks as clock (clock.id)}
-    <li class="clock-wrapper" animate:flip={{ duration: flipDurationMs }}>
-      <Clock {...clock} id={clock.id} cityNameNative={clock.cityNameNative} />
-    </li>
-  {/each}
-</ul>
+{#if $clocks.length}
+  <ul
+    use:dndzone={{
+      items: $clocks,
+      flipDurationMs,
+      dragDisabled: !$general.reorder,
+      dropTargetStyle: { outline: 'none' },
+    }}
+    on:consider={handleDndConsider}
+    on:finalize={handleDndFinalize}
+    class="clocks"
+  >
+    {#each $clocks as clock (clock.id)}
+      <li class="clock-wrapper" animate:flip={{ duration: flipDurationMs }}>
+        <Clock {...clock} id={clock.id} cityNameNative={clock.cityNameNative} />
+      </li>
+    {/each}
+  </ul>
+{/if}
 
 <style lang="scss">
   .clocks {
