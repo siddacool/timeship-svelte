@@ -23,6 +23,7 @@ export interface Clock {
   timezone: Timezone;
   id?: string | undefined; // cityName__countryCode__timezone
   color: string;
+  expanded?: boolean;
 }
 
 export enum SettingsThemes {

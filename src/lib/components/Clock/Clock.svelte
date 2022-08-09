@@ -1,7 +1,8 @@
 <script lang="ts">
+  import { clocks } from '$lib/stores/clocks';
+
   import { general } from '$lib/stores/general';
   import type { CityName, CityNameNative, CountryCode, CountryName, Timezone } from '$lib/types';
-  import { getRandomNumber } from '$lib/utils';
   import Card from '../ui/Card.svelte';
   import City from './City.svelte';
   import DeleteButton from './DeleteButton.svelte';
@@ -19,15 +20,10 @@
   export let timezone: Timezone;
   export let countryCode: CountryCode;
   export let color: string = '';
-
-  let showExtendedInfo = false;
+  export let expanded: boolean = false;
 
   const toggleExtendedInfo = () => {
-    showExtendedInfo = !showExtendedInfo;
-  };
-
-  const closeExtendedInfo = () => {
-    showExtendedInfo = false;
+    clocks.toggleExpand(id);
   };
 </script>
 
@@ -39,17 +35,13 @@
 >
   <div class="clock" class:draggable={$general.reorder}>
     <DragHandle isActive={$general.reorder} />
-    <LongPressReorder isActive={!$general.reorder && !showExtendedInfo} />
+    <LongPressReorder isActive={!$general.reorder && !expanded} />
     <Time {timezone} />
     <City {cityNameNative} {cityName} {countryName} {countryCode} />
-    <RederderBtn isActive={showExtendedInfo && !$general.reorder} {closeExtendedInfo} />
+    <RederderBtn isActive={expanded && !$general.reorder} />
     <DeleteButton isActive={$general.reorder} {id} />
-    <ExtendedInfo {timezone} isActive={showExtendedInfo && !$general.reorder} />
-    <ExpandBtn
-      on:click={toggleExtendedInfo}
-      isOpen={showExtendedInfo}
-      isActive={!$general.reorder}
-    />
+    <ExtendedInfo {timezone} isActive={expanded && !$general.reorder} />
+    <ExpandBtn on:click={toggleExtendedInfo} isOpen={expanded} isActive={!$general.reorder} />
   </div>
 </Card>
 

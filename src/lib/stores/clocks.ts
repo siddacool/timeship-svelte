@@ -52,6 +52,21 @@ function createClocks() {
         return d;
       });
     },
+    toggleExpand: (id = '') => {
+      return update((d) => {
+        const clocks = d.map((clock) => {
+          if (clock.id === id) {
+            clock.expanded = !clock.expanded;
+          }
+
+          return clock;
+        });
+
+        setStoredValue('clocks', clocks);
+
+        return clocks;
+      });
+    },
   };
 }
 
