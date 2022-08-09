@@ -28,5 +28,15 @@
         transform: rotate(180deg);
       }
     }
+
+    :global(.icon-button) {
+      &:hover {
+        background-color: var(--color-bg-button-adapt);
+      }
+
+      &:active {
+        background-color: var(--color-bg-button-adapt-hover);
+      }
+    }
   }
 </style>

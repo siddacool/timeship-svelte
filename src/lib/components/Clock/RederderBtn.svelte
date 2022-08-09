@@ -32,5 +32,17 @@
     position: absolute;
     top: 8px;
     right: 8px;
+
+    :global(.icon-button) {
+      background-color: var(--color-bg-button-adapt);
+
+      &:hover {
+        background-color: var(--color-bg-button-adapt-hover);
+      }
+
+      &:active {
+        background-color: var(--color-bg-button-adapt-active);
+      }
+    }
   }
 </style>
