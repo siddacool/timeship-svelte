@@ -1,8 +1,3 @@
-<script lang="ts">
-  import { createEventDispatcher } from 'svelte';
-  const dispatch = createEventDispatcher();
-</script>
-
 <div class="drag-handle" on:mousedown on:touchstart on:mouseup on:touchend>
   <svg xmlns="http://www.w3.org/2000/svg" height="40" width="40">
     <path

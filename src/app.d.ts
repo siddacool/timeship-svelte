@@ -1,5 +1,4 @@
 /// <reference types="@sveltejs/kit" />
-/// <reference types="svelte-gestures" />
 
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces

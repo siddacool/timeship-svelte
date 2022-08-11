@@ -15,7 +15,6 @@ specifiers:
   svelte: ^3.49.0
   svelte-check: ^2.8.0
   svelte-dnd-action: ^0.9.19
-  svelte-gestures: ^1.4.1
   svelte-preprocess: ^4.10.7
   tslib: ^2.4.0
   typescript: ^4.7.4
@@ -24,7 +23,6 @@ specifiers:
 dependencies:
   dayjs: 1.11.3
   svelte-dnd-action: 0.9.19
-  svelte-gestures: 1.4.1
 
 devDependencies:
   '@sveltejs/adapter-static': 1.0.0-next.37
@@ -1450,10 +1448,6 @@ packages:
 
   /svelte-dnd-action/0.9.19:
     resolution: {integrity: sha512-1Jsym2HN0TJVUl09wLGASkHg937+ZecnnekPiwC0J6K7mCzOxCuIQSVnIxoQLLeiXv74joNVNpVofX9Z0jM4Vw==}
-    dev: false
-
-  /svelte-gestures/1.4.1:
-    resolution: {integrity: sha512-TAmfcz+DgdfrRDFSQ9UsXxhqDjQR7LaUaALauqITaTCVSHPWXIZ9WSBPP6DrXh9MYqgVZwy85wJdv7NQPwsZfA==}
     dev: false
 
   /svelte-hmr/0.14.12_svelte@3.49.0:
