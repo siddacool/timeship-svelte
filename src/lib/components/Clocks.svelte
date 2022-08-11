@@ -12,14 +12,25 @@
     };
   }
 
-  const flipDurationMs = 300;
+  const flipDurationMs = 200;
+  let dragDisabled = true;
 
-  const handleDndConsider = (e: DragEvent) => {
-    clocks.organize(e.detail.items);
+  const handleConsider = (evt: { detail: { items: any } }) => {
+    clocks.organize(evt.detail.items);
   };
 
-  const handleDndFinalize = (e: DragEvent) => {
-    clocks.organize(e.detail.items);
+  const handleFinalize = (evt: { detail: { items: any } }) => {
+    clocks.organize(evt.detail.items);
+    // Ensure dragging is stopped on drag finish
+    dragDisabled = true;
+  };
+
+  const startDrag = () => {
+    dragDisabled = false;
+  };
+
+  const stopDrag = () => {
+    dragDisabled = true;
   };
 </script>
 
@@ -28,16 +39,24 @@
     use:dndzone={{
       items: $clocks,
       flipDurationMs,
-      dragDisabled: !$general.reorder,
+      dragDisabled: dragDisabled,
       dropTargetStyle: { outline: 'none' },
     }}
-    on:consider={handleDndConsider}
-    on:finalize={handleDndFinalize}
+    on:consider={handleConsider}
+    on:finalize={handleFinalize}
     class="clocks"
   >
     {#each $clocks as clock (clock.id)}
       <li class="clock-wrapper" animate:flip={{ duration: flipDurationMs }}>
-        <Clock {...clock} id={clock.id} cityNameNative={clock.cityNameNative} />
+        <Clock
+          {...clock}
+          id={clock.id}
+          cityNameNative={clock.cityNameNative}
+          on:mousedown={startDrag}
+          on:touchstart={startDrag}
+          on:mouseup={stopDrag}
+          on:touchend={stopDrag}
+        />
       </li>
     {/each}
   </ul>

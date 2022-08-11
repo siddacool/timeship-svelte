@@ -30,41 +30,15 @@ function createClocks() {
       return update((d) => {
         const clocks = d.filter((clock) => clock.id !== id);
 
+        setStoredValue('clocks', clocks);
+
         return clocks;
       });
     },
     organize: (newData: Clock[]) => {
       return update(() => {
+        setStoredValue('clocks', newData);
         return newData;
-      });
-    },
-    cancelOrganize: () => {
-      const stored = getStoredValue('clocks', []);
-
-      return update(() => {
-        return stored;
-      });
-    },
-    acceptOrganize: () => {
-      return update((d) => {
-        setStoredValue('clocks', d);
-
-        return d;
-      });
-    },
-    toggleExpand: (id = '') => {
-      return update((d) => {
-        const clocks = d.map((clock) => {
-          if (clock.id === id) {
-            clock.expanded = !clock.expanded;
-          }
-
-          return clock;
-        });
-
-        setStoredValue('clocks', clocks);
-
-        return clocks;
       });
     },
   };

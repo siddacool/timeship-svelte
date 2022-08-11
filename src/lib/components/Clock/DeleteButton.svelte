@@ -2,7 +2,6 @@
   import { clocks } from '$lib/stores/clocks';
   import IconButton from '../ui/IconButton.svelte';
 
-  export let isActive: boolean;
   export let id: string | undefined;
 
   const handleDelete = () => {
@@ -10,23 +9,51 @@
   };
 </script>
 
-{#if isActive}
-  <div class="delete-btn">
-    <IconButton on:click={() => handleDelete()} color="danger" name="Delete city">
-      <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24">
+<div class="expand-btn">
+  <IconButton on:click={() => handleDelete()} name="Delete city">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <mask
+        id="mask0_20_267"
+        style="mask-type:alpha"
+        maskUnits="userSpaceOnUse"
+        x="0"
+        y="0"
+        width="24"
+        height="24"
+      >
+        <rect x="0.30188" width="22.8356" height="24" fill="#D9D9D9" />
+      </mask>
+      <g mask="url(#mask0_20_267)">
         <path
-          d="M6.925 21.2q-.925 0-1.6-.662-.675-.663-.675-1.613V6.075H3.525V3.8H8.85V2.65h6.275V3.8h5.35v2.275H19.35v12.85q0 .95-.675 1.613-.675.662-1.6.662Zm10.15-15.125H6.925v12.85h10.15ZM8.9 17h2.125V8H8.9Zm4.075 0H15.1V8h-2.125ZM6.925 6.075v12.85Z"
+          d="M6.3914 19L5.05933 17.6L10.3876 12L5.05933 6.4L6.3914 5L11.7197 10.6L17.048 5L18.3801 6.4L13.0518 12L18.3801 17.6L17.048 19L11.7197 13.4L6.3914 19Z"
+          fill="#7D7D7D"
         />
-      </svg>
-    </IconButton>
-  </div>
-{/if}
+      </g>
+    </svg>
+  </IconButton>
+</div>
 
 <style lang="scss">
-  .delete-btn {
+  .expand-btn {
     display: block;
     position: absolute;
-    top: 8px;
-    right: 8px;
+    top: 0;
+    right: 0;
+
+    svg {
+      path {
+        fill: currentColor;
+      }
+    }
+
+    :global(.icon-button) {
+      &:hover {
+        background-color: var(--color-bg-button-adapt);
+      }
+
+      &:active {
+        background-color: var(--color-bg-button-adapt-hover);
+      }
+    }
   }
 </style>

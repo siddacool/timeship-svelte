@@ -5,7 +5,6 @@
   import Placeholder from '$lib/components/Placeholder.svelte';
   import ThemeSetter from '$lib/components/ThemeSetter.svelte';
   import Controls from '$lib/components/Controls.svelte';
-  import ReorderPopBelow from '$lib/components/ReorderPopBelow.svelte';
   import SearchModal from '$lib/components/Search/SearchModal.svelte';
   import SearchDropdown from '$lib/components/Search/SearchDropdown.svelte';
   import SettingsModal from '$lib/components/Settings/SettingsModal.svelte';
@@ -34,7 +33,6 @@
   <Controls />
 </main>
 
-<ReorderPopBelow />
 <SearchModal />
 <SearchDropdown />
 <SettingsModal />
