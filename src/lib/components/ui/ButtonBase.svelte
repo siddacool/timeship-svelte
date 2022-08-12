@@ -87,19 +87,6 @@
           background-color: var(--color-bg-button-primary-active);
         }
       }
-
-      &--danger {
-        color: var(--color-font-button-danger);
-        background-color: var(--color-bg-button-danger);
-
-        &:hover {
-          background-color: var(--color-bg-button-danger-hover);
-        }
-
-        &:active {
-          background-color: var(--color-bg-button-danger-active);
-        }
-      }
     }
   }
 </style>
