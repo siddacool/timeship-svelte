@@ -1,0 +1,23 @@
+{
+  "short_name": "Timeship",
+  "name": "Timeship",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "maskable_icon_x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "android-chrome-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "background_color": "#0752dc",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#0752dc",
+  "description": "get currunt time from cities all around the globe."
+}
