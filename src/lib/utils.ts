@@ -86,8 +86,8 @@ export const setStoredValue = (name: string, value: unknown) => {
 
 export const setTheme = (theme: SettingsTheme) => {
   if (browser) {
-    const light = '#e7f2f7';
-    const dark = '#e7e7e7';
+    const light = '#dbecf5';
+    const dark = '#09253d';
     const bodyItem = document.querySelector('body');
     const themeColor = document.querySelector('meta[name="theme-color"]');
 
