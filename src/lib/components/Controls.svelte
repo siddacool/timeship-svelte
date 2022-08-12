@@ -17,18 +17,14 @@
   };
 </script>
 
-<div
-  class="contol"
-  class:hide={$general.reorder}
-  class:noClocks={!$clocks.length && !$general.reorder ? true : false}
->
+<div class="contol" class:noClocks={!$clocks.length ? true : false}>
   <ButtonTextToggle
     name="add city"
     elevation
     color="white"
     on:click={onSearchClick}
     responsive
-    showText={!$clocks.length && !$general.reorder ? true : false}
+    showText={!$clocks.length ? true : false}
     class="add-city"
   >
     <svg
@@ -66,7 +62,7 @@
     name="Settings"
     color="white"
     responsive
-    showText={!$clocks.length && !$general.reorder ? true : false}
+    showText={!$clocks.length ? true : false}
     on:click={onSettingsClick}
     class="settings"
   >
@@ -107,14 +103,6 @@
     bottom: 14px;
     right: 16px;
     transition: transform 200ms;
-
-    &.hide {
-      transform: translate(74px, 0);
-
-      @media (min-width: 1024px) {
-        transform: translate(330px, 0);
-      }
-    }
 
     &.noClocks {
       @media (max-width: 1023px) {

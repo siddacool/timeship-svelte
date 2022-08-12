@@ -1,11 +1,10 @@
 <script lang="ts">
   import { clocks } from '$lib/stores/clocks';
   import { time } from '$lib/stores/time';
-  import { general } from '$lib/stores/general';
   import { getTime } from '$lib/utils';
 </script>
 
-{#if !$clocks.length && !$general.reorder}
+{#if !$clocks.length}
   <div class="placeholder">
     <div class="clock">
       {getTime($time, Intl.DateTimeFormat().resolvedOptions().timeZone, 'HH:mm:ss')}
