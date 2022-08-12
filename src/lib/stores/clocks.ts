@@ -35,12 +35,6 @@ function createClocks() {
         return clocks;
       });
     },
-    organize: (newData: Clock[]) => {
-      return update(() => {
-        setStoredValue('clocks', newData);
-        return newData;
-      });
-    },
   };
 }
 

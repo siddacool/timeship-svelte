@@ -1,10 +1,12 @@
 import { writable } from 'svelte/store';
-import type {
-  Settings,
-  SettingsClockFormat,
-  SettingsCountryFormat,
-  SettingsFreezeTimeAt,
-  SettingsTheme,
+import {
+  SettingsClockFormats,
+  SettingsCountryFormats,
+  SettingsThemes,
+  type Settings,
+  type SettingsClockFormat,
+  type SettingsCountryFormat,
+  type SettingsTheme,
 } from '$lib/types';
 import { getStoredValue, setStoredValue } from '$lib/utils';
 
@@ -12,7 +14,6 @@ const settingsLocalStorage = getStoredValue('settings', {
   theme: 'auto',
   clockFormat: '12hour',
   countryFormat: 'countryCode',
-  freezeTimeAt: 'Delhi__IN__Asia/Kolkata__12:44:12:18:07:2022',
 });
 
 const settingsDefaultValue: Settings = settingsLocalStorage;
@@ -22,7 +23,7 @@ function createSettings() {
 
   return {
     subscribe,
-    setTheme: (theme: SettingsTheme = 'auto') => {
+    setTheme: (theme: SettingsTheme = SettingsThemes.auto) => {
       return update((d) => {
         d.theme = theme;
 
@@ -31,7 +32,7 @@ function createSettings() {
         return d;
       });
     },
-    setClockFormat: (clockFormat: SettingsClockFormat = '12hour') => {
+    setClockFormat: (clockFormat: SettingsClockFormat = SettingsClockFormats.hour12) => {
       return update((d) => {
         d.clockFormat = clockFormat;
 
@@ -40,18 +41,12 @@ function createSettings() {
         return d;
       });
     },
-    setCountryFormat: (countryFormat: SettingsCountryFormat = 'countryCode') => {
+    setCountryFormat: (
+      countryFormat: SettingsCountryFormat = SettingsCountryFormats.countryName
+    ) => {
       return update((d) => {
         d.countryFormat = countryFormat;
 
-        setStoredValue('settings', d);
-
-        return d;
-      });
-    },
-    setFreezeTimeAt: (freezeTimeAt: SettingsFreezeTimeAt = null) => {
-      return update((d) => {
-        d.freezeTimeAt = freezeTimeAt;
         setStoredValue('settings', d);
 
         return d;
