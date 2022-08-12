@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="A world clock at your fingertips. Timeship displays time from cities all around the globe."
+    />
+    <link rel="shortcut icon" type="image/png" href="./favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
+    <link rel="manifest" href="./manifest.json" crossorigin="use-credentials" />
+    <meta name="theme-color" content="#dbecf5" />
+    <meta name="apple-mobile-web-app-capable" content="no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="timeship" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="mask-icon" href="./safari-pinned-tab.svg" color="#dbecf5" />
+    <meta name="msapplication-TileImage" content="msapplication-icon-144x144.png" />
+    <meta name="msapplication-TileColor" content="#dbecf5" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="Timeship" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://timeship.vercel.app/" />
+    <meta property="og:image" content="https://timeship.vercel.app/og.webp" />
+    <meta
+      property="og:description"
+      content="A world clock at your fingertips. Timeship displays time from cities all around the globe."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;517;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,600,0,200&display=swap"
+    />
+
+    <title>Timeship</title>
+    <meta http-equiv="content-security-policy" content="">
+	<link rel="stylesheet" href="/_app/immutable/assets/index-d1c3ed02.css">
+	<link rel="modulepreload" href="/_app/immutable/start-a78416b6.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/index-f5e4aa99.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/index-97599203.js">
+	<link rel="modulepreload" href="/_app/immutable/layout.svelte-7f00c8bc.js">
+	<link rel="modulepreload" href="/_app/immutable/pages/index.svelte-7deb7b64.js">
+			<script>
+		if ('serviceWorker' in navigator) {
+			addEventListener('load', function () {
+				navigator.serviceWorker.register('/service-worker.js');
+			});
+		}
+	</script>
+  </head>
+  <body>
+    <div>
+
+
+<main class="svelte-5pjokg">
+  <div class="placeholder svelte-8s555f"><div class="clock svelte-8s555f">15:53:18</div>
+
+    <div class="brand svelte-8s555f"><h1 class="svelte-8s555f">Timeship</h1></div>
+
+    A world clock at your fingertips.<br>
+    Timeship displays time from cities all around the globe.
+  </div>
+  
+  <div class="contol svelte-11l2bd6 noClocks"><button class="button-base color--white button-text-toogle button-text-toogle-showText button-text-toogle-responsive add-city svelte-1iwlvl3 elevation" aria-label="add city"><span class="material-symbols-rounded add-city-icon" slot="icon">manage_search </span>
+  <div class="btn-text svelte-167nmix showText responsive">Add City
+  </div>
+</button>
+
+  <button class="button-base color--white button-text-toogle button-text-toogle-showText button-text-toogle-responsive settings svelte-1iwlvl3 elevation" aria-label="Settings"><span class="material-symbols-rounded settings-icon" slot="icon">settings </span>
+  <div class="btn-text svelte-167nmix showText responsive">Settings
+  </div>
+</button>
+</div></main>
+
+<div class="search-modal"></div>
+<div class="search-dropdown svelte-oue7oh">
+</div>
+<div class="settings-modal"></div>
+<div class="settings-dropdown svelte-10hwkt8">
+</div>
+
+
+		<script type="module" data-sveltekit-hydrate="19pfc29">
+		import { start } from "/_app/immutable/start-a78416b6.js";
+		start({
+			target: document.querySelector('[data-sveltekit-hydrate="19pfc29"]').parentNode,
+			paths: {"base":"","assets":""},
+			session: {},
+			route: true,
+			spa: false,
+			trailing_slash: "never",
+			hydrate: {
+				status: 200,
+				error: null,
+				nodes: [0, 2],
+				params: {},
+				routeId: ""
+			}
+		});
+	</script></div>
+  </body>
+</html>
