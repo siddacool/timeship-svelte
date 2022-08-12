@@ -1,6 +1,3 @@
-<script lang="ts">
-</script>
-
 <span>
   <svg
     width="24"
@@ -101,8 +98,3 @@
     </rect>
   </svg>
 </span>
-
-<style>
-  span {
-  }
-</style>

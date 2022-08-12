@@ -31,9 +31,5 @@
     padding-left: 6px;
     padding-right: 6px;
     color: inherit;
-
-    :global(svg) {
-      margin-right: 6px;
-    }
   }
 </style>
