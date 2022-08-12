@@ -92,10 +92,6 @@
       &--close {
         top: 0;
         right: 1px;
-
-        path {
-          fill: currentColor;
-        }
       }
     }
 
