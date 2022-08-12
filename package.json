@@ -34,7 +34,6 @@
   },
   "type": "module",
   "dependencies": {
-    "dayjs": "^1.11.3",
-    "svelte-dnd-action": "^0.9.19"
+    "dayjs": "^1.11.3"
   }
 }

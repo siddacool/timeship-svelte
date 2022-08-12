@@ -1,9 +1,7 @@
 <script lang="ts">
-  import { general } from '$lib/stores/general';
   import type { CityName, CityNameNative, CountryCode, CountryName, Timezone } from '$lib/types';
   import Card from '../ui/Card.svelte';
   import City from './City.svelte';
-  import DragHandle from './DragHandle.svelte';
   import DeleteButton from './DeleteButton.svelte';
   import Time from './Time.svelte';
 
@@ -17,13 +15,10 @@
 </script>
 
 <Card
-  style="background-color: var({$general.reorder
-    ? '--color-bg-surface-main'
-    : `--color-bg-clock-${color}`});
-    color: var({$general.reorder ? '--color-font-main' : `--color-font-clock-${color}`})"
+  style="background-color: var({`--color-bg-clock-${color}`});
+    color: var({`--color-font-clock-${color}`})"
 >
   <div class="clock">
-    <DragHandle on:mousedown on:touchstart on:mouseup on:touchend />
     <DeleteButton {id} />
     <Time {timezone} />
     <City {cityNameNative} {cityName} {countryName} {countryCode} />
@@ -37,6 +32,5 @@
     padding-bottom: 4px;
     padding-right: 58px;
     transition: padding 300ms;
-    padding-left: 40px;
   }
 </style>

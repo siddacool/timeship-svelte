@@ -37,8 +37,8 @@
   .expand-btn {
     display: block;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 8px;
+    right: 8px;
 
     svg {
       path {
