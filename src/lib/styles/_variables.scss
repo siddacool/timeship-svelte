@@ -81,5 +81,53 @@
 }
 
 [data-theme='dark'] {
-  --color-bg-backdrop: #e7e7e7;
+  --color-bg-backdrop: #151525;
+  --color-bg-surface-main: #143353;
+  --color-bg-grey-1: #1a4571;
+
+  --color-font-main: #bfd4f8;
+  --color-font-grey-1: #5675a7;
+
+  --color-border-button: #345b9d;
+
+  --color-shadow: 240deg 44% 3%;
+  --color-bg-backdrop-t-1: rgb(10 21 33 / 34%);
+  --color-border-text-box-grey-1: #29517a;
+
+  --color-bg-button-default-hover: #193e65;
+  --color-bg-button-default-active: #1d4c7e;
+
+  --color-bg-button-primary: #17426b;
+
+  --color-bg-button-main: #1c3384;
+  --color-bg-button-main-hover: #233884;
+  --color-bg-button-main-active: #273f94;
+
+  --color-bg-button-secondary: #14599c;
+  --color-bg-button-secondary-hover: #1765b1;
+  --color-bg-button-secondary-active: #1d71c3;
+
+  --color-bg-clock-1: #8c3840;
+  --color-bg-clock-2: #7f2544;
+  --color-bg-clock-3: #6d2b79;
+  --color-bg-clock-4: #533982;
+  --color-bg-clock-5: #3d4996;
+  --color-bg-clock-6: #2e628d;
+  --color-bg-clock-7: #246582;
+  --color-bg-clock-8: #216972;
+  --color-bg-clock-9: #1d7770;
+  --color-bg-clock-10: #1c581f;
+  --color-bg-clock-11: #4d6e26;
+
+  --color-font-clock-1: #fccbd0;
+  --color-font-clock-2: #f8c8d8;
+  --color-font-clock-3: #efc6f6;
+  --color-font-clock-4: #d8c5f9;
+  --color-font-clock-5: #c7cdf8;
+  --color-font-clock-6: #c0d8eb;
+  --color-font-clock-7: #b4dbed;
+  --color-font-clock-8: #aedce2;
+  --color-font-clock-9: #afe2dd;
+  --color-font-clock-10: #d3fdd4;
+  --color-font-clock-11: #dcf2c1;
 }
