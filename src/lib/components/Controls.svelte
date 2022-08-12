@@ -134,9 +134,13 @@
     }
 
     @media (min-width: 1024px) {
-      display: flex;
       top: 16px;
       bottom: initial;
+      right: 16px;
+    }
+
+    @media (min-width: 1400px) {
+      display: flex;
       right: 40px;
     }
 
@@ -145,7 +149,7 @@
       height: 55px;
       margin-bottom: 16px;
 
-      @media (min-width: 1024px) {
+      @media (min-width: 1400px) {
         margin-right: 16px;
         margin-bottom: 0;
       }

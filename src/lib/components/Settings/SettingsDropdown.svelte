@@ -25,8 +25,13 @@
     }
 
     :global(.card) {
-      top: 82px;
-      right: 47px;
+      top: 156px;
+      right: 16px;
+
+      @media (min-width: 1400px) {
+        top: 82px;
+        right: 47px;
+      }
     }
   }
 </style>
